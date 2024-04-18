@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export const Table = ({ titles = [], children }) => {
+export const Table = ({ titles = [], rows}) => {
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto lg:-mx-6">
@@ -9,13 +9,13 @@ export const Table = ({ titles = [], children }) => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-zinc-50 reuseable-table-header">
                 <tr>
-                  {titles.map((title, index) => (
+                  {titles?.map((title) => (
                     <th
-                      key={index}
+                      key={title?.key}
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-semibold text-zinc-500 capitalize tracking-wider"
                     >
-                      {title}
+                      {title?.name}
                     </th>
                   ))}
 
@@ -25,7 +25,17 @@ export const Table = ({ titles = [], children }) => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {children}
+                {rows?.map((el)=>(
+                  <tr key={el?.key} className="bg-white border-b text-xs dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
+                  {Object.values(el).slice(1).map((val)=>(
+                    <td className="py-4 text-left pl-6 pr-4" key={val}>{val}</td>
+
+
+                  )) }
+             </tr>
+
+                ))}
+              
               </tbody>
             </table>
           </div>
@@ -37,17 +47,8 @@ export const Table = ({ titles = [], children }) => {
 
 Table.propTypes = {
   titles: PropTypes.array,
+  rows: PropTypes.array,
   children: PropTypes.element,
 };
 
-Table.Data = ({ children }) => (
-  <tr className="bg-white border-b text-xs text-left dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-    {children}
-  </tr>
-);
 
-Table.Data.propTypes = {
-  children: PropTypes.node,
-};
-
-Table.Data.displayName = "Table.Data";

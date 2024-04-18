@@ -6,7 +6,7 @@ export const Popup = ({
   children,
   icon,
   iconBackground,
-  iconColor,
+ 
 }) => {
   return (
     <div
@@ -21,7 +21,7 @@ export const Popup = ({
               <span
                 style={{
                   backgroundColor: `${iconBackground}`,
-                  color: `${iconColor}`,
+                  
                 }}
                 className="px-2 py-2 rounded-full text-xl"
               >
@@ -51,7 +51,7 @@ Popup.propTypes = {
   icon: PropTypes.element,
   children: PropTypes.node,
   iconBackground: PropTypes.string,
-  iconColor: PropTypes.string,
+
 };
 
 Popup.Header = ({ children }) => (
@@ -65,9 +65,7 @@ Popup.Content = ({ children }) => (
 );
 
 Popup.Button = ({ children }) => (
-  <div className="mt-8">
-    <div className="">{children}</div>
-  </div>
+    <div className="mt-8 flex items-center justify-center gap-4 w-full">{children}</div>
 );
 
 Popup.Header.propTypes = {

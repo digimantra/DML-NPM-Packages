@@ -9,7 +9,7 @@ export default {
   tags: ["autodocs"],
   argTypes: {
     iconBackground: { control: "color" },
-    iconColor: { control: "color" },
+ 
   },
 };
 
