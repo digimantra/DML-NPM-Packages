@@ -4,40 +4,6 @@ import {Icons} from "./stories/Icons/Icons"
 
 
 
-const rows= [
-  {
-    key:1,
-      name: "John",
-      age: 30,
-      email: "john@example.com",
-      contact: "+1234567890",
-      order: "ABC123",
-      price: 50,
-      status: "pending"
-  },
-  {
-
-    key:2,
-      name: "Alice",
-      age: 25,
-      email: "alice@example.com",
-      contact: "+1987654321",
-      order: "DEF456",
-      price: 70,
-      status: "completed"
-  },
-  {
-    key:3,
-      name: "Bob",
-      age: 35,
-      email: "bob@example.com",
-      contact: "+1122334455",
-      order: "GHI789",
-      price: 100,
-      status: "pending"
-  }
-];
-
 const title = [
   
   {
@@ -78,6 +44,41 @@ render: () =>
             name:"status"
           }
 ];
+
+const rows= [
+  {
+    key:1,
+      name: "John",
+      age: 30,
+      email: "john@example.com",
+      contact: "+1234567890",
+      order: "ABC123",
+      price: 50,
+      status: "pending"
+  },
+  {
+
+    key:2,
+      name: "Alice",
+      age: 25,
+      email: "alice@example.com",
+      contact: "+1987654321",
+      order: "DEF456",
+      price: 70,
+      status: "completed"
+  },
+  {
+    key:3,
+      name: "Bob",
+      age: 35,
+      email: "bob@example.com",
+      contact: "+1122334455",
+      order: "GHI789",
+      price: 100,
+      status: "pending"
+  }
+];
+
 
 
 const App = () => {

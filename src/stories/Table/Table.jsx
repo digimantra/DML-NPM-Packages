@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { Component } from "react";
 
 export const Table = ({ titles = [], rows}) => {
   return (
@@ -12,7 +11,7 @@ export const Table = ({ titles = [], rows}) => {
                 <tr>
                   {titles?.map((title) => (
                     <th
-                      key={title?.key}
+                      key={title?.id}
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-semibold text-zinc-500 capitalize tracking-wider"
                     >
@@ -28,10 +27,10 @@ export const Table = ({ titles = [], rows}) => {
               <tbody className="bg-white divide-y divide-gray-200">
                 {rows?.map((el)=>(
                   <tr key={el?.key} className="bg-white border-b text-xs dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
+                   
                   {Object.values(el).slice(1).map((val)=>(
+                    
                     <td className="py-4 text-left pl-6 pr-4" key={val}>{val}</td>
-
-
                   )) }
              </tr>
 
@@ -49,7 +48,6 @@ export const Table = ({ titles = [], rows}) => {
 Table.propTypes = {
   titles: PropTypes.array,
   rows: PropTypes.array,
-  children: PropTypes.element,
 };
 
 
