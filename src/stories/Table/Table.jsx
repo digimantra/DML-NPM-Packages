@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import { Component } from "react";
 
 export const Table = ({ titles = [], rows}) => {
   return (
     <div className="flex flex-col">
-      <div className="-my-2 overflow-x-auto lg:-mx-6">
+      <div className="-my-2 overflow-x-auto lg:-mx-6 rounded-md border border-dashed border-blue-400">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className=" overflow-hidden">
             <table className="min-w-full divide-y divide-gray-200">
@@ -15,7 +16,7 @@ export const Table = ({ titles = [], rows}) => {
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-semibold text-zinc-500 capitalize tracking-wider"
                     >
-                      {title?.name}
+                      {title?.render ? title?.render() :title?.name}
                     </th>
                   ))}
 

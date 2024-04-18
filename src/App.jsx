@@ -1,5 +1,6 @@
 
 import {Table} from "./stories/Table/Table"
+import {Icons} from "./stories/Icons/Icons"
 
 
 
@@ -41,7 +42,9 @@ const title = [
   
   {
 id:1,
-name:"name"
+name:"name",
+render: () => 
+<Icons name="customers" height="20" width="20" fill="#e11d07"/> 
 },
 
 {
