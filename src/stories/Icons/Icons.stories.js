@@ -1,5 +1,5 @@
 import { Icons } from "./Icons";
-import { IconsData } from "./IconsData";
+// import { IconsData } from "./IconsData";
 
 export default {
   title: "Icons",
@@ -13,7 +13,6 @@ export default {
   },
 };
 
-// export const Testing = (args) => <Icons name="key" {...args} />;
 
 export const Dashboard = {
   args: {
@@ -23,6 +22,12 @@ export const Dashboard = {
     fill: "#000",
   },
 };
+
+
+// export const Test = {
+//   a:<div className="bg-red-100 px-4 py-2 rounded text-red-900">Testing</div>
+// }
+
 
 export const Warehouse = {
   args: {

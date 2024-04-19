@@ -77,13 +77,13 @@ export const Menu = ({ show, setShow, menu }) => {
                   <FaChevronDown
                     onClick={() => toggleDropdown(item.id)}
                     className={`${
-                      dropdownState[item.id] ? "hidden md:hidden duration-300 ease-in-out" : ""
+                      dropdownState[item.id] ? "opacity-0 md:hidden duration-300 ease-in-out" : ""
                     } absolute md:hidden z-50 cursor-pointer right-3 top-1/2 transform-all -translate-y-1/2`}
                   />
                   <FaChevronUp
                     onClick={() => toggleDropdown(item.id)}
                     className={`absolute ${
-                      dropdownState[item.id] ? "" : "hidden md:hidden duration-300 ease-in-out"
+                      dropdownState[item.id] ? "duration-300 ease-in-out" : "opacity-0 md:hidden duration-300 ease-in-out"
                     } cursor-pointer right-3 top-1/2 md:hidden transform -translate-y-1/2`}
                   />
 
@@ -93,8 +93,8 @@ export const Menu = ({ show, setShow, menu }) => {
 
                 <div
                   className={`${
-                    dropdownState[item.id] ? "transform-all duration-300 ease-in-out" : "transform-all hidden opacity-100 duration-300 ease-in-out"
-                  } md:absolute md:top-10 w-full md:w-28 bg-gray-200 rounded-md py-2 px-1 mb-2`}
+                    dropdownState[item.id] ? "translate-y-0 opacity-100 transform-all duration-300 h-full py-2 mb-2 ease-in-out " : "-translate-y-full h-0 opacity-0 duration-300  transform-all ease-in-out "
+                  } transform-all ease-in-out md:absolute md:top-10 w-full md:w-28 bg-gray-200 rounded-md  px-1`}
                 >
                   <ul className="">
                     {item?.drop?.map((el, index) => (
