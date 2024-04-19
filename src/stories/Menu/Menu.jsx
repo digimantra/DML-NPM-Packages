@@ -53,11 +53,11 @@ export const Menu = ({ show, setShow, menu }) => {
           }`}
           id="navbar-default"
         >
-          <ul className="font-medium w-72 flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="font-medium w-96 flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:flex-row md:justify-around md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             {menu?.map((item) => (
                 <li
                   key={item?.id}
-                  className={`relative"
+                  className={`px-4
                   }`}
                 >
                   <div className={`relative flex z-10 items-center gap-2 mb-2 py-2 px-3 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 ${
@@ -67,7 +67,7 @@ export const Menu = ({ show, setShow, menu }) => {
                   {item?.icon}
                   <a
                     href="#"
-                    className="block text-sm tracking-wide"
+                    className="block relative text-sm tracking-wide"
                     aria-current="page"
                     onClick={() => toggleDropdown(item.id)}
                   >
@@ -94,15 +94,15 @@ export const Menu = ({ show, setShow, menu }) => {
                 <div
                   className={`${
                     dropdownState[item.id] ? "transform-all duration-300 ease-in-out" : "transform-all hidden opacity-100 duration-300 ease-in-out"
-                  } md:absolute md:top-10 md:-left-5 w-full bg-gray-50 rounded-md py-2 px-1`}
+                  } md:absolute md:top-10 w-full md:w-28 bg-gray-200 rounded-md py-2 px-1 mb-2`}
                 >
                   <ul className="">
                     {item?.drop?.map((el, index) => (
                       <li
                         key={index}
-                        className="flex items-center gap-2 mb-2 py-2 text-gray-800 rounded md:bg-transparent md:p-0 capitalize dark:text-white md:dark:text-blue-500 hover:bg-gray-100 md:hover:bg-transparent"
+                        className="flex items-center gap-2 mb-2 py-2 text-gray-800 rounded md:bg-transparent md:p-0 capitalize dark:text-white md:dark:text-blue-500 hover:bg-gray-300 md:hover:bg-transparent"
                       >
-                        <a href="#" className="block text-sm tracking-wide pl-6" aria-current="page">
+                        <a href="#" className="block text-sm tracking-wide pl-6 md:pl-2 md:text-xs" aria-current="page">
                           {el}
                         </a>
                       </li>

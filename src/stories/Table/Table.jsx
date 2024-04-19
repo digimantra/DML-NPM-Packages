@@ -1,8 +1,29 @@
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 
-export const Table = ({ titles = [], rows}) => {
+export const Table = ({ titles = [], rows, itemsPerPage}) => {
+const [currentPage, setCurrentPage]= useState(1);
+const [totalPages, setTotalPages]= useState(1);
+const [ currentData, setCurrentData] = useState([]);
+
+
+useEffect(() => {
+  // Calculate total number of pages
+  const totalPagesCount = Math.ceil(rows.length / itemsPerPage);
+  setTotalPages(totalPagesCount);
+
+  // Update currentData based on currentPage
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  setCurrentData(rows.slice(startIndex, endIndex));
+}, [rows, currentPage, itemsPerPage]);
+
+const handlePageChange = (newPage) => {
+  setCurrentPage(newPage);
+};
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative ">
       <div className="-my-2 overflow-x-auto lg:-mx-6 rounded-md border border-dashed border-blue-400">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className=" overflow-hidden">
@@ -25,7 +46,7 @@ export const Table = ({ titles = [], rows}) => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {rows?.map((el)=>(
+                {currentData?.map((el)=>(
                   <tr key={el?.key} className="bg-white border-b text-xs dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
                    
                   {Object.values(el).slice(1).map((val)=>(
@@ -41,6 +62,12 @@ export const Table = ({ titles = [], rows}) => {
           </div>
         </div>
       </div>
+
+           <div className="fixed bottom-0">
+              <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>Previous</button>
+              <span>Page {currentPage} of {totalPages}</span>
+              <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>Next</button>
+            </div>
     </div>
   );
 };
@@ -48,6 +75,7 @@ export const Table = ({ titles = [], rows}) => {
 Table.propTypes = {
   titles: PropTypes.array,
   rows: PropTypes.array,
+  itemsPerPage:PropTypes.string,
 };
 
 
