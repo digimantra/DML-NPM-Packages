@@ -1,13 +1,14 @@
 
 // import {Table} from "./stories/Table/Table"
-// import {Icons} from "./stories/Icons/Icons"
-// import { useState } from "react";
+import {Icons} from "./stories/Icons/Icons"
+import { useState } from "react";
 // import {Menu} from "./stories/Menu/Menu"
 // import { IoHomeOutline } from "react-icons/io5";
 // import { FaListUl } from "react-icons/fa";
 
-import { Chart } from "./stories/Charts/Chart";
-import { Notifications } from "./stories/Notifications/Notifications";
+// import { Chart } from "./stories/Charts/Chart";
+import { Actions } from "./stories/Actions/Actions";
+// import { Notifications } from "./stories/Notifications/Notifications";
 
 
 
@@ -174,7 +175,6 @@ import { Notifications } from "./stories/Notifications/Notifications";
 
 
 //For menu
-
 // const dropMenu = [
 //   {
 //     id:1,
@@ -230,50 +230,82 @@ import { Notifications } from "./stories/Notifications/Notifications";
 // };
 
 
-const data = [
-  {
-    id: 1,
-    notificationContent: "A new user has been registered",
-    dateTime: "Apr 09, 2024 12:52:18"
-  },
-  {
-    id: 2,
-    notificationContent: "Your account has been updated",
-    dateTime: "Apr 10, 2024 09:20:45"
-  },
-  {
-    id: 3,
-    notificationContent: "You have a new message",
-    dateTime: "Apr 11, 2024 15:10:32"
-  },
-  {
-    id: 4,
-    notificationContent: "Payment received",
-    dateTime: "Apr 12, 2024 17:30:00"
-  },
-  {
-    id: 5,
-    notificationContent: "Reminder: Webinar tomorrow",
-    dateTime: "Apr 13, 2024 10:00:00"
-  },
-  {
-    id: 6,
-    notificationContent: "Your subscription expires soon",
-    dateTime: "Apr 14, 2024 14:45:00"
-  },
-  {
-    id: 7,
-    notificationContent: "New feature released: Dark mode",
-    dateTime: "Apr 15, 2024 08:00:00"
-  }
-];
+//For notifications
+// const data = [
+//   {
+//     id: 1,
+//     notificationContent: "A new user has been registered",
+//     dateTime: "Apr 09, 2024 12:52:18"
+//   },
+//   {
+//     id: 2,
+//     notificationContent: "Your account has been updated",
+//     dateTime: "Apr 10, 2024 09:20:45"
+//   },
+//   {
+//     id: 3,
+//     notificationContent: "You have a new message",
+//     dateTime: "Apr 11, 2024 15:10:32"
+//   },
+//   {
+//     id: 4,
+//     notificationContent: "Payment received",
+//     dateTime: "Apr 12, 2024 17:30:00"
+//   },
+//   {
+//     id: 5,
+//     notificationContent: "Reminder: Webinar tomorrow",
+//     dateTime: "Apr 13, 2024 10:00:00"
+//   },
+//   {
+//     id: 6,
+//     notificationContent: "Your subscription expires soon",
+//     dateTime: "Apr 14, 2024 14:45:00"
+//   },
+//   {
+//     id: 7,
+//     notificationContent: "New feature released: Dark mode",
+//     dateTime: "Apr 15, 2024 08:00:00"
+//   }
+// ];
 
+//for Actions
+const handleDelete= ()=>{
+  console.log("deleted");
+}
 
+const handleEdit= ()=>{
+  console.log("Edited");
+}
 
+const handleView= ()=>{
+  console.log("see the list");
+}
+
+//Data for actions
+const list =[{
+  id:1, name:"edit", action:handleEdit
+},
+
+{
+  id:2, name:"delete", action:handleDelete
+},
+
+{
+  id:3, name:"view", action:handleView
+}
+]
+
+//Custom button/icon to display action dropdown on click
+const button = (<Icons name="ellipsis" height="20" width="20" fill="#000"/>)
 
 
 const App = () => {
-  // const [show,setShow]= useState(false)
+  const [show,setShow]= useState(false)
+
+  const handleToggleAction = ()=>{
+    setShow(!show)
+  }
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
@@ -285,7 +317,9 @@ const App = () => {
     {/* <Chart data={lineChartData} title="Sale" type="bar"/> */}
 
 
-      {<Notifications data={data}/>}
+    {/* {<Notifications data={data}/>} */}
+
+    <Actions list={list} position="center" show={show} setShow={handleToggleAction} customButton={button}/>
     </div>
   );
 };

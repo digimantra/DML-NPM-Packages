@@ -145,3 +145,30 @@ export const LeftArrowLast = {
     width: "20",
   },
 };
+
+export const ArrowDown = {
+  args: {
+    name: "arrowDown",
+    fill: "#000",
+    height: "20",
+    width: "20",
+  },
+};
+
+export const ArrowUp = {
+  args: {
+    name: "arrowUp",
+    fill: "#000",
+    height: "20",
+    width: "20",
+  },
+};
+
+export const Ellipsis = {
+  args: {
+    name: "ellipsis",
+    fill: "#000",
+    height: "20",
+    width: "20",
+  },
+};

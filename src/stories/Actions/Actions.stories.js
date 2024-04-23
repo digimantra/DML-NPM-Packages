@@ -14,7 +14,29 @@ export default {
 export const Default = {
   args: {
     show: false,
-    setShow: false,
-    list: ["edit", "view", "delete"],
-  },
+    setShow: () => {}, // Assuming setShow is a function
+    list: [
+      {
+        id: 1,
+        name: "view",
+        action: () => {
+          console.log("see the list");
+        }
+      },
+      {
+        id: 2,
+        name: "delete",
+        action: () => {
+          console.log("deleted");
+        }
+      },
+      {
+        id: 3,
+        name: "edit",
+        action: () => {
+          console.log("Edited");
+        }
+      }
+    ]
+  }
 };

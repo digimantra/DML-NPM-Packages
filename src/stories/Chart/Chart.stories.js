@@ -1,5 +1,4 @@
-import { Chart } from "./Charts";
-
+import { Chart } from "./Chart";
 
 export default {
   title: "Chart",
@@ -8,14 +7,8 @@ export default {
     layout: "centered",
   },
   tags: ["autodocs"],
-  argTypes: {},
 };
 
 export const Default = {
-  args: {
-
-
-  },
+  args: {},
 };
-
-
