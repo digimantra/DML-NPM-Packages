@@ -93,7 +93,7 @@ export const Menu = ({ show, setShow, menu }) => {
 
                 <div
                   className={`${
-                    dropdownState[item.id] ? "translate-y-0 opacity-100 transform-all duration-300 h-full py-2 mb-2 ease-in-out " : "-translate-y-full h-0 opacity-0 duration-300  transform-all ease-in-out "
+                    dropdownState[item.id] ? "translate-y-0 opacity-100 transform-all duration-300 py-2 mb-2 ease-in-out " : "-translate-y-full h-0 opacity-0 duration-300 transform-all ease-in-out "
                   } transform-all ease-in-out md:absolute md:top-10 w-full md:w-28 bg-gray-200 rounded-md  px-1`}
                 >
                   <ul className="">

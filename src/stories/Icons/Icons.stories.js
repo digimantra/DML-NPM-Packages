@@ -109,3 +109,39 @@ export const Key = {
     width: "20",
   },
 };
+
+export const RightArrow = {
+  args: {
+    name: "rightArrow",
+    fill: "#000",
+    height: "20",
+    width: "20",
+  },
+};
+
+export const RightArrowLast = {
+  args: {
+    name: "rightArrowLast",
+    fill: "#000",
+    height: "20",
+    width: "20",
+  },
+};
+
+export const LeftArrow = {
+  args: {
+    name: "leftArrow",
+    fill: "#000",
+    height: "20",
+    width: "20",
+  },
+};
+
+export const LeftArrowLast = {
+  args: {
+    name: "leftArrowLast",
+    fill: "#000",
+    height: "20",
+    width: "20",
+  },
+};

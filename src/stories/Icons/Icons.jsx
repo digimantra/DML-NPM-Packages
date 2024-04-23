@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { IconsData } from "./IconsData";
 
-export const Icons = ({ name, width, filled, height, fill }) => {
+export const Icons = ({ name, width="15", filled, height="15", fill, onClick }) => {
   const icon = IconsData[name];
 
   if (!icon) {
@@ -9,7 +9,7 @@ export const Icons = ({ name, width, filled, height, fill }) => {
   }
 
   return (
-    <div>
+    <div onClick={onClick}>
       {icon?.stroke === true ? (
         <svg
           width={width}
@@ -69,4 +69,5 @@ Icons.propTypes = {
   height: PropTypes.string,
   fill: PropTypes.string,
   filled: PropTypes.bool,
+  onClick:PropTypes.func
 };
