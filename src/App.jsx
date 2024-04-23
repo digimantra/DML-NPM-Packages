@@ -1,13 +1,14 @@
 
 // import {Table} from "./stories/Table/Table"
-import {Icons} from "./stories/Icons/Icons"
-import { useState } from "react";
+// import {Icons} from "./stories/Icons/Icons"
+// import { useState } from "react";
 // import {Menu} from "./stories/Menu/Menu"
 // import { IoHomeOutline } from "react-icons/io5";
 // import { FaListUl } from "react-icons/fa";
 
 // import { Chart } from "./stories/Charts/Chart";
-import { Actions } from "./stories/Actions/Actions";
+// import { Actions } from "./stories/Actions/Actions";
+import { Avatar } from "./stories/Avatar/Avatar";
 // import { Notifications } from "./stories/Notifications/Notifications";
 
 
@@ -269,46 +270,59 @@ import { Actions } from "./stories/Actions/Actions";
 //   }
 // ];
 
-//for Actions
-const handleDelete= ()=>{
-  console.log("deleted");
-}
 
-const handleEdit= ()=>{
-  console.log("Edited");
-}
 
-const handleView= ()=>{
-  console.log("see the list");
-}
 
-//Data for actions
-const list =[{
-  id:1, name:"edit", action:handleEdit
-},
+//Functions for Actions
+// const handleDelete= ()=>{
+//   console.log("deleted");
+// }
 
-{
-  id:2, name:"delete", action:handleDelete
-},
+// const handleEdit= ()=>{
+//   console.log("Edited");
+// }
 
-{
-  id:3, name:"view", action:handleView
-}
-]
+// const handleView= ()=>{
+//   console.log("see the list");
+// }
 
-//Custom button/icon to display action dropdown on click
-const button = (<Icons name="ellipsis" height="20" width="20" fill="#000"/>)
+//Data (array of objects) for actions
+// const list =[{
+//   id:1, name:"edit", action:handleEdit
+// },
+
+// {
+//   id:2, name:"delete", action:handleDelete
+// },
+
+// {
+//   id:3, name:"view", action:handleView
+// }
+// ]
+
+// //Custom button/icon to display action dropdown on click
+// const button = (<Icons name="ellipsis" height="20" width="20" fill="#000"/>)
 
 
 const App = () => {
-  const [show,setShow]= useState(false)
+  // const [show,setShow]= useState(false)
 
-  const handleToggleAction = ()=>{
-    setShow(!show)
-  }
+  // const handleToggleAction = ()=>{
+  //   setShow(!show)
+  // }
+
+  const image ="https://images.unsplash.com/photo-1578774296842-c45e472b3028?q=80&w=973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
+    <Avatar size="8" image={image}/>
+    </div>
+  );
+};
+
+export default App;
+
+
 
     {/* <Table rows={rows} titles={title}/> */}
 
@@ -319,9 +333,6 @@ const App = () => {
 
     {/* {<Notifications data={data}/>} */}
 
-    <Actions list={list} position="center" show={show} setShow={handleToggleAction} customButton={button}/>
-    </div>
-  );
-};
+    {/* <Actions list={list} show={show} position="left" setShow={handleToggleAction} customButton={button}/> */}
 
-export default App;
+

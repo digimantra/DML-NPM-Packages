@@ -16,25 +16,25 @@ export const Actions = ({ show, setShow, list,customButton, position}) => {
   const handlePosition = () => {
     switch (position) {
       case "left":
-        return "left-0";
+        return "right-0";
 
       case "right":
-        return "right-0";
+        return "left-0";
 
       case "topCenter":
         return "bottom-full mb-2 left-1/2 transform -translate-x-1/2";
       
       case "topLeft":
-        return "bottom-full mb-2 left-0";
+        return "bottom-full mb-2 right-0";
 
       case "topRight":
-        return "bottom-full mb-2 right-0";
+        return "bottom-full mb-2 left-0";
 
       case "center":
         return "left-1/2 transform -translate-x-1/2";
         
       default:
-        return "right-0";
+        return "left-0";
     }
   };
 
