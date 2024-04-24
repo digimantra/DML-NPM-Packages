@@ -8,9 +8,8 @@
 
 // import { Chart } from "./stories/Charts/Chart";
 // import { Actions } from "./stories/Actions/Actions";
-// import { Avatar } from "./stories/Avatar/Avatar";
-import clsx from "clsx";
-import {Carousel} from "./stories/carousel";
+// import clsx from "clsx";
+// import {Carousel} from "./stories/carousel";
 // import { Notifications } from "./stories/Notifications/Notifications";
 
 
@@ -305,38 +304,31 @@ import {Carousel} from "./stories/carousel";
 // //Custom button/icon to display action dropdown on click
 // const button = (<Icons name="ellipsis" height="20" width="20" fill="#000"/>)
 
-const DATA = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]?.map(( num ) => (
-  { children: <div className={clsx(
-    "h-24 flex justify-center items-center text-white", num % 2 === 0 ? "bg-blue-300" : "bg-red-300" )}>
-    {num}. This is Carousel
-  </div> }
-));
+// const DATA = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]?.map(( num ) => (
+//   { children: <div className={clsx(
+//     "h-24 flex justify-center items-center text-white", num % 2 === 0 ? "bg-blue-300" : "bg-red-300" )}>
+//     {num}. This is Carousel
+//   </div> }
+// ));
 
+// const args ={
+//   initialIndex : 1,
+//   numItemsVisible: 5,
+//   numItemsScroll : 4,
+// }
 
-const args ={
-
-  initialIndex :0,
-  numItemsVisible: 4,
-  numItemsScroll :3,
-
-}
+import { Avatar } from "./stories/Avatar/Avatar";
 
 
 const App = () => {
-  // const [show,setShow]= useState(false)
 
-  // const handleToggleAction = ()=>{
-  //   setShow(!show)
-  // }
-
-
-  // const image ="https://images.unsplash.com/photo-1578774296842-c45e472b3028?q=80&w=973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  const image ="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-    {/* <Avatar size="8" image={image}  /> */}
 
-    <Carousel items={DATA} {...args}/>
+    <Avatar image={image}/>
+
     </div>
   );
 };
@@ -346,14 +338,11 @@ export default App;
 
 
     {/* <Table rows={rows} titles={title}/> */}
-
+    {/* <Carousel items={DATA} {...args}/> */}
     {/* <Menu menu={dropMenu} show={show} setShow={setShow}/> */}
     {/* <Icons name="driver" filled fill="#000" height="30" width="30" /> */}
     {/* <Chart data={lineChartData} title="Sale" type="bar"/> */}
-
-
     {/* {<Notifications data={data}/>} */}
-
     {/* <Actions list={list} show={show} position="left" setShow={handleToggleAction} customButton={button}/> */}
 
 

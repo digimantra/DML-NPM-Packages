@@ -2,6 +2,7 @@ import React, { ReactElement, useEffect } from "react";
 import clsx from "clsx";
 // import { ADPIcon, iconList } from "../adpIcon";
 import "./carousel.styles.css"
+import { log } from "console";
 
 export interface ICarouselItem {
   /**
@@ -72,32 +73,40 @@ export const Carousel = ({
     initialIndex && initialIndex > 0 && initialIndex <= items?.length ?
       Math.floor( initialIndex / numItemsVisible ) * numItemsVisible : 0
   );
+  
   // check for numItemsVisible is positive and not exceeds number of items
   const itemsVisible = numItemsVisible > 1 && numItemsVisible <= items?.length ? numItemsVisible : 1;
+
   // check for itemsScroll is positive and not exceeds number of numItemsVisible
   const itemsScroll = numItemsScroll > 1 && numItemsScroll <= numItemsVisible ? numItemsScroll : 1;
+
   // calculate the sliding windows we will have based on itemsVisible and itemsScroll
-  const slides = Math.ceil((( items?.length - itemsVisible ) / itemsScroll ) + 1 );
-  const currentSlide = startIndex / numItemsVisible;
+  const slides = Math.ceil((( items?.length - itemsVisible ) / itemsScroll ));
+  // const currentSlide = Math.floor(startIndex / numItemsVisible);
+
   // calculate the max translate value to avoid over translation in case numItemsScroll is greater
-  const maxTranslateBy = ( slides - 1 ) * 100;
+  // const maxTranslateBy = ( slides - 1 ) * 100;
+
   // calculate translateBy and should not exceed maxTranslateBy
-  const translateBy = itemsScroll * currentSlide * ( 100 / itemsVisible ) < maxTranslateBy ?
-    itemsScroll * currentSlide * ( 100 / itemsVisible ) : maxTranslateBy;
+  const translateBy = startIndex === 0 ? 0 : startIndex *  ( 100 / itemsVisible );
 
   useEffect(() => {
     onChange?.( startIndex );
   }, [ onChange, startIndex ]);
 
-  const handleNext = () => {
-    if ( items?.length > 0 && items?.length !== startIndex + numItemsVisible ) {
-      setStartIndex(( index ) => index + numItemsVisible );
+  const handleNext = () => {    
+    if ( items?.length > 0 && items?.length !==  startIndex + numItemsScroll ) {
+      setStartIndex(( index ) => index + numItemsScroll );
     }
   };
 
+  console.log(`items-> ${items?.length}, startIndex-> ${startIndex}, numScroll -> ${numItemsScroll}, slides -> ${slides}`); 
+
+  
+
   const handlePrev = () => {
-    if ( items?.length > 0 && startIndex - numItemsVisible > -1 ) {
-      setStartIndex(( index ) => index - numItemsVisible );
+    if ( items?.length > 0 && startIndex - numItemsScroll > -1 ) {
+      setStartIndex(( index ) => index - numItemsScroll );
     }
   };
 
@@ -113,7 +122,7 @@ export const Carousel = ({
       {
         label: "next",
         onClick: handleNext,
-        disabled: currentSlide === slides - 1,
+        disabled:  startIndex > (slides * numItemsScroll) - 1,
         icon: "next",
         position: "end-0"
       }
