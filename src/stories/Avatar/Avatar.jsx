@@ -71,7 +71,7 @@ export const Avatar = ({
       >
         {selectedImage || image ? (
           <img
-            className={`h-full w-full object-cover `}
+            className={`h-full w-full object-cover`}
             src={selectedImage}
             alt="Face"
           />

@@ -317,18 +317,25 @@
 //   numItemsScroll : 4,
 // }
 
+import { useState } from "react";
 import { Avatar } from "./stories/Avatar/Avatar";
 
 
 const App = () => {
 
-  const image ="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  const [image, setImage] = useState("");
+
+  const handleUpload = (img) => {
+    setImage(img);
+    // Here, you can do whatever you want with the uploaded image data
+    console.log("Uploaded image data:", img);
+  };
+
+  console.log(image);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-
-    <Avatar image={image}/>
-
+      <Avatar size="8" borderColor="red" onUpload={handleUpload} />
     </div>
   );
 };
