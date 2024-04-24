@@ -8,7 +8,9 @@
 
 // import { Chart } from "./stories/Charts/Chart";
 // import { Actions } from "./stories/Actions/Actions";
-import { Avatar } from "./stories/Avatar/Avatar";
+// import { Avatar } from "./stories/Avatar/Avatar";
+import clsx from "clsx";
+import {Carousel} from "./stories/carousel";
 // import { Notifications } from "./stories/Notifications/Notifications";
 
 
@@ -303,6 +305,22 @@ import { Avatar } from "./stories/Avatar/Avatar";
 // //Custom button/icon to display action dropdown on click
 // const button = (<Icons name="ellipsis" height="20" width="20" fill="#000"/>)
 
+const DATA = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]?.map(( num ) => (
+  { children: <div className={clsx(
+    "h-24 flex justify-center items-center text-white", num % 2 === 0 ? "bg-blue-300" : "bg-red-300" )}>
+    {num}. This is Carousel
+  </div> }
+));
+
+
+const args ={
+
+  initialIndex :0,
+  numItemsVisible: 4,
+  numItemsScroll :3,
+
+}
+
 
 const App = () => {
   // const [show,setShow]= useState(false)
@@ -311,11 +329,14 @@ const App = () => {
   //   setShow(!show)
   // }
 
-  const image ="https://images.unsplash.com/photo-1578774296842-c45e472b3028?q=80&w=973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+
+  // const image ="https://images.unsplash.com/photo-1578774296842-c45e472b3028?q=80&w=973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-    <Avatar size="8" image={image}/>
+    {/* <Avatar size="8" image={image}  /> */}
+
+    <Carousel items={DATA} {...args}/>
     </div>
   );
 };

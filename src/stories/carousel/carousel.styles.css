@@ -1,0 +1,32 @@
+.carousel-container {
+  @apply relative w-full bg-transparent;
+
+  .carousel-wrapper {
+    @apply relative mx-auto min-h-max overflow-hidden flex items-center justify-center ;
+  }
+
+  .carousel-content {
+    @apply flex flex-nowrap w-full duration-500 ease-in-out inset-0 transition-transform transform;
+  }
+
+  .carousel-button {
+    @apply absolute inset-y-0 z-10 flex items-center justify-center h-full px-2 cursor-pointer focus:outline-none;
+
+    span {
+      @apply inline-flex items-center justify-center w-8 h-8 rounded-full;
+      @apply hover:bg-blue-200 dark:hover:bg-blue-400;
+    }
+
+    svg {
+      @apply w-4 h-4 text-blue-300 rtl:rotate-180 dark:text-white;
+    }
+
+    &:disabled {
+      @apply opacity-50 cursor-not-allowed;
+
+      span {
+        @apply cursor-not-allowed hover:bg-inherit;
+      }
+    }
+  }
+}

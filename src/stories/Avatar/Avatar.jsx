@@ -149,10 +149,11 @@ Avatar.propTypes = {
   type: PropTypes.string,
   outline: PropTypes.string,
   color: PropTypes.string,
-  onUpload: PropTypes.image,
+  onUpload: PropTypes.func,
 };
 
 Avatar.defaultProps = {
   outline: "#000000",
   color: "#cb4d2e",
+  onUpload:()=>{}
 };
