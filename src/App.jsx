@@ -1,5 +1,4 @@
-
-import {Icons} from "./stories/Icons/Icons"
+import {InputField} from "./stories/InputField/InputField"
 
 // const title = [
 //   {
@@ -218,75 +217,49 @@ import {Icons} from "./stories/Icons/Icons"
 
 
 //For notifications
-const data = [
-  {
-    id: 1,
-    notificationContent: "A new user has been registered",
-    dateTime: "Apr 09, 2024 12:52:18"
-  },
-  {
-    id: 2,
-    notificationContent: "Your account has been updated",
-    dateTime: "Apr 10, 2024 09:20:45"
-  },
-  {
-    id: 3,
-    notificationContent: "You have a new message",
-    dateTime: "Apr 11, 2024 15:10:32"
-  },
-  {
-    id: 4,
-    notificationContent: "Payment received",
-    dateTime: "Apr 12, 2024 17:30:00"
-  },
-  {
-    id: 5,
-    notificationContent: "Reminder: Webinar tomorrow",
-    dateTime: "Apr 13, 2024 10:00:00"
-  },
-  {
-    id: 6,
-    notificationContent: "Your subscription expires soon",
-    dateTime: "Apr 14, 2024 14:45:00"
-  },
-  {
-    id: 7,
-    notificationContent: "New feature released: Dark mode",
-    dateTime: "Apr 15, 2024 08:00:00"
-  }
-];
+// const data = [
+//   {
+//     id: 1,
+//     notificationContent: "A new user has been registered",
+//     dateTime: "Apr 09, 2024 12:52:18"
+//   },
+//   {
+//     id: 2,
+//     notificationContent: "Your account has been updated",
+//     dateTime: "Apr 10, 2024 09:20:45"
+//   },
+//   {
+//     id: 3,
+//     notificationContent: "You have a new message",
+//     dateTime: "Apr 11, 2024 15:10:32"
+//   },
+//   {
+//     id: 4,
+//     notificationContent: "Payment received",
+//     dateTime: "Apr 12, 2024 17:30:00"
+//   },
+//   {
+//     id: 5,
+//     notificationContent: "Reminder: Webinar tomorrow",
+//     dateTime: "Apr 13, 2024 10:00:00"
+//   },
+//   {
+//     id: 6,
+//     notificationContent: "Your subscription expires soon",
+//     dateTime: "Apr 14, 2024 14:45:00"
+//   },
+//   {
+//     id: 7,
+//     notificationContent: "New feature released: Dark mode",
+//     dateTime: "Apr 15, 2024 08:00:00"
+//   }
+// ];
 
 
-import {Notifications} from "./stories/Notifications/Notifications"
 const App = () => {
-
-  const icon = (<svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M4.26405 14.1815C4.59041 14.5942 5.00628 14.9273 5.48026 15.1557C5.95423 15.3841 6.47391 15.5019 7.00005 15.5C7.52618 15.5019 8.04586 15.3841 8.51984 15.1557C8.99381 14.9273 9.40968 14.5942 9.73604 14.1815C7.92035 14.4276 6.07974 14.4276 4.26405 14.1815ZM12.0625 5.75V6.278C12.0625 6.91175 12.2425 7.53125 12.5815 8.0585L13.4125 9.35075C14.1708 10.5313 13.5918 12.1355 12.2725 12.5083C8.82536 13.4847 5.17473 13.4847 1.72755 12.5083C0.408296 12.1355 -0.170703 10.5313 0.587547 9.35075L1.41855 8.0585C1.75873 7.52702 1.93913 6.90903 1.9383 6.278V5.75C1.9383 2.8505 4.2048 0.5 7.00005 0.5C9.79529 0.5 12.0625 2.8505 12.0625 5.75Z" fill="#202A31"/>
-  </svg>)
-
   return (
-    <div className="m-6">
-
-      <nav className="flex items-center justify-around">
-
-      <Icons name="warehouse" height="25" width="25" filled fill="#1b1b1b"/>
-
-      <Notifications data={data} icon={icon}/>
-
-      <Icons name="warehouse" height="25" width="25" filled fill="#1b1b1b"/>
-
-
-      <Icons name="warehouse" height="25" width="25" filled fill="#1b1b1b"/>
-
-      <Icons name="warehouse" height="25" width="25" filled fill="#1b1b1b"/>
-
-      <Icons name="warehouse" height="25" width="25" filled fill="#1b1b1b"/>
-
-
-
-      </nav>
-      
-     
+    <div className="flex relative flex-co w-1/3 mx-auto items-center justify-center h-screen">
+  <InputField label="contact" type="number"/>
     </div>
   );
 };

@@ -45,7 +45,7 @@ export const InputField = forwardRef(
       if (onChange) {
         onChange(inputValue);
       }
-    };
+    };  
 
     const handleValidation = () => {
       if (type === "email") {
@@ -176,7 +176,7 @@ export const InputField = forwardRef(
         {/* Type number Input */}
         {type === "number" &&
           (selectList ? (
-            <select className="absolute top-10 left-2 outline-none text-[#101828] text-base">
+            <select onSelect={value} className="absolute top-10 left-2 outline-none text-[#101828] text-base">
               {selectList.map((el, index) => (
                 <option value={el} className="text-sm" key={index}>
                   {el}
@@ -184,12 +184,12 @@ export const InputField = forwardRef(
               ))}
             </select>
           ) : (
-            <select className="absolute top-10 left-2 outline-none text-[#101828] text-base">
-              <option>US</option>
-              <option>UK</option>
-              <option>IN</option>
-              <option>RUS</option>
-            </select>
+            <select onSelect={value} className="absolute top-10 left-2 outline-none text-[#101828] text-base">
+            <option value="us">US</option> {/* United States */}
+            <option value="uk">UK</option> {/* United Kingdom */}
+            <option value="in">IN</option> {/* India */}
+            <option value="rus">RUS</option> {/* Russia */}
+          </select>
           ))}
 
         {/* Hint */}
