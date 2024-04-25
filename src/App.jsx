@@ -11,6 +11,8 @@
 // import clsx from "clsx";
 // import {Carousel} from "./stories/carousel";
 // import { Notifications } from "./stories/Notifications/Notifications";
+import {Shipment} from "./stories/Shipments/Shipment"
+import {Icons} from "./stories/Icons/Icons"
 
 
 
@@ -317,25 +319,21 @@
 //   numItemsScroll : 4,
 // }
 
-import { useState } from "react";
-import { Avatar } from "./stories/Avatar/Avatar";
+//ShipmentDetail data
+
+const shipment = {
+  id:"AS-1122", 
+  name:"Shipments"
+}
+
+const icon = (<Icons name="shipment" filled fill="#7653C2" height="26" width="26"/>)
 
 
 const App = () => {
 
-  const [image, setImage] = useState("");
-
-  const handleUpload = (img) => {
-    setImage(img);
-    // Here, you can do whatever you want with the uploaded image data
-    console.log("Uploaded image data:", img);
-  };
-
-  console.log(image);
-
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <Avatar size="8" borderColor="red" onUpload={handleUpload} />
+    <div className="flex flex-col items-center justify-center w-1/3 mx-auto h-screen">
+      <Shipment data={shipment} icon={icon} iconBackGround="#E2E2FE"/>
     </div>
   );
 };

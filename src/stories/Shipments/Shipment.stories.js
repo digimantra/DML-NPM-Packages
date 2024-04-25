@@ -1,8 +1,8 @@
-import { Card } from "./Card";
+import { Shipment } from "./Shipment";
 
 export default {
-  title: "Card",
-  component: Card,
+  title: "Shipment",
+  component: Shipment,
   parameters: {
     layout: "centered",
   },
