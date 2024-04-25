@@ -1,23 +1,6 @@
 
-// import {Table} from "./stories/Table/Table"
-// import {Icons} from "./stories/Icons/Icons"
-// import { useState } from "react";
-// import {Menu} from "./stories/Menu/Menu"
-// import { IoHomeOutline } from "react-icons/io5";
-// import { FaListUl } from "react-icons/fa";
-
-// import { Chart } from "./stories/Charts/Chart";
-// import { Actions } from "./stories/Actions/Actions";
-// import clsx from "clsx";
-// import {Carousel} from "./stories/carousel";
-// import { Notifications } from "./stories/Notifications/Notifications";
-import {Shipment} from "./stories/Shipments/Shipment"
 import {Icons} from "./stories/Icons/Icons"
 
-
-
-
-//For Table
 // const title = [
 //   {
 // id:1,
@@ -235,105 +218,75 @@ import {Icons} from "./stories/Icons/Icons"
 
 
 //For notifications
-// const data = [
-//   {
-//     id: 1,
-//     notificationContent: "A new user has been registered",
-//     dateTime: "Apr 09, 2024 12:52:18"
-//   },
-//   {
-//     id: 2,
-//     notificationContent: "Your account has been updated",
-//     dateTime: "Apr 10, 2024 09:20:45"
-//   },
-//   {
-//     id: 3,
-//     notificationContent: "You have a new message",
-//     dateTime: "Apr 11, 2024 15:10:32"
-//   },
-//   {
-//     id: 4,
-//     notificationContent: "Payment received",
-//     dateTime: "Apr 12, 2024 17:30:00"
-//   },
-//   {
-//     id: 5,
-//     notificationContent: "Reminder: Webinar tomorrow",
-//     dateTime: "Apr 13, 2024 10:00:00"
-//   },
-//   {
-//     id: 6,
-//     notificationContent: "Your subscription expires soon",
-//     dateTime: "Apr 14, 2024 14:45:00"
-//   },
-//   {
-//     id: 7,
-//     notificationContent: "New feature released: Dark mode",
-//     dateTime: "Apr 15, 2024 08:00:00"
-//   }
-// ];
+const data = [
+  {
+    id: 1,
+    notificationContent: "A new user has been registered",
+    dateTime: "Apr 09, 2024 12:52:18"
+  },
+  {
+    id: 2,
+    notificationContent: "Your account has been updated",
+    dateTime: "Apr 10, 2024 09:20:45"
+  },
+  {
+    id: 3,
+    notificationContent: "You have a new message",
+    dateTime: "Apr 11, 2024 15:10:32"
+  },
+  {
+    id: 4,
+    notificationContent: "Payment received",
+    dateTime: "Apr 12, 2024 17:30:00"
+  },
+  {
+    id: 5,
+    notificationContent: "Reminder: Webinar tomorrow",
+    dateTime: "Apr 13, 2024 10:00:00"
+  },
+  {
+    id: 6,
+    notificationContent: "Your subscription expires soon",
+    dateTime: "Apr 14, 2024 14:45:00"
+  },
+  {
+    id: 7,
+    notificationContent: "New feature released: Dark mode",
+    dateTime: "Apr 15, 2024 08:00:00"
+  }
+];
 
 
-
-
-//Functions for Actions
-// const handleDelete= ()=>{
-//   console.log("deleted");
-// }
-
-// const handleEdit= ()=>{
-//   console.log("Edited");
-// }
-
-// const handleView= ()=>{
-//   console.log("see the list");
-// }
-
-//Data (array of objects) for actions
-// const list =[{
-//   id:1, name:"edit", action:handleEdit
-// },
-
-// {
-//   id:2, name:"delete", action:handleDelete
-// },
-
-// {
-//   id:3, name:"view", action:handleView
-// }
-// ]
-
-// //Custom button/icon to display action dropdown on click
-// const button = (<Icons name="ellipsis" height="20" width="20" fill="#000"/>)
-
-// const DATA = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]?.map(( num ) => (
-//   { children: <div className={clsx(
-//     "h-24 flex justify-center items-center text-white", num % 2 === 0 ? "bg-blue-300" : "bg-red-300" )}>
-//     {num}. This is Carousel
-//   </div> }
-// ));
-
-// const args ={
-//   initialIndex : 1,
-//   numItemsVisible: 5,
-//   numItemsScroll : 4,
-// }
-
-//ShipmentDetail data
-
-const shipment = {
-  id:"AS-1122", 
-  name:"Shipments"
-}
-
-const icon = (<Icons name="shipment" filled fill="#7653C2" height="26" width="26"/>)
-
-
+import {Notifications} from "./stories/Notifications/Notifications"
 const App = () => {
 
+  const icon = (<svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4.26405 14.1815C4.59041 14.5942 5.00628 14.9273 5.48026 15.1557C5.95423 15.3841 6.47391 15.5019 7.00005 15.5C7.52618 15.5019 8.04586 15.3841 8.51984 15.1557C8.99381 14.9273 9.40968 14.5942 9.73604 14.1815C7.92035 14.4276 6.07974 14.4276 4.26405 14.1815ZM12.0625 5.75V6.278C12.0625 6.91175 12.2425 7.53125 12.5815 8.0585L13.4125 9.35075C14.1708 10.5313 13.5918 12.1355 12.2725 12.5083C8.82536 13.4847 5.17473 13.4847 1.72755 12.5083C0.408296 12.1355 -0.170703 10.5313 0.587547 9.35075L1.41855 8.0585C1.75873 7.52702 1.93913 6.90903 1.9383 6.278V5.75C1.9383 2.8505 4.2048 0.5 7.00005 0.5C9.79529 0.5 12.0625 2.8505 12.0625 5.75Z" fill="#202A31"/>
+  </svg>)
+
   return (
-    <div className="flex flex-col items-center justify-center w-1/3 mx-auto h-screen">
-      <Shipment data={shipment} icon={icon} iconBackGround="#E2E2FE"/>
+    <div className="m-6">
+
+      <nav className="flex items-center justify-around">
+
+      <Icons name="warehouse" height="25" width="25" filled fill="#1b1b1b"/>
+
+      <Notifications data={data} icon={icon}/>
+
+      <Icons name="warehouse" height="25" width="25" filled fill="#1b1b1b"/>
+
+
+      <Icons name="warehouse" height="25" width="25" filled fill="#1b1b1b"/>
+
+      <Icons name="warehouse" height="25" width="25" filled fill="#1b1b1b"/>
+
+      <Icons name="warehouse" height="25" width="25" filled fill="#1b1b1b"/>
+
+
+
+      </nav>
+      
+     
     </div>
   );
 };
@@ -347,7 +300,7 @@ export default App;
     {/* <Menu menu={dropMenu} show={show} setShow={setShow}/> */}
     {/* <Icons name="driver" filled fill="#000" height="30" width="30" /> */}
     {/* <Chart data={lineChartData} title="Sale" type="bar"/> */}
-    {/* {<Notifications data={data}/>} */}
+   
     {/* <Actions list={list} show={show} position="left" setShow={handleToggleAction} customButton={button}/> */}
 
 

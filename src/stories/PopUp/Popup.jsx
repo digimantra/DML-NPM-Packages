@@ -10,7 +10,7 @@ export const Popup = ({
 }) => {
   return (
     <div
-      className={`${show ? "visible" : "hidden"} fixed top-0 inset-0 bg-white bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full `}
+      className={`${show ? "visible" : "hidden"} fixed top-0 inset-0 bg-white bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full`}
     >
       <div className="relative">
         <div
@@ -64,7 +64,7 @@ Popup.Content = ({ children }) => (
   <div className="text-[14px] text-[#667085] leading-5">{children}</div>
 );
 
-Popup.Button = ({ children }) => (
+Popup.Footer = ({ children }) => (
     <div className="mt-8 flex items-center justify-center gap-4 w-full">{children}</div>
 );
 
@@ -76,10 +76,10 @@ Popup.Content.propTypes = {
   children: PropTypes.node,
 };
 
-Popup.Button.propTypes = {
+Popup.Footer.propTypes = {
   children: PropTypes.node,
 };
 
 Popup.Header.displayName = "Popup.Header";
 Popup.Content.displayName = "Popup.Content";
-Popup.Button.displayName = "Popup.Content";
+Popup.Footer.displayName = "Popup.Content";
