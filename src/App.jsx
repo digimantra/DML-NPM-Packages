@@ -1,4 +1,5 @@
 import {InputField} from "./stories/InputField/InputField"
+import {Icons} from "./stories/Icons/Icons"
 
 // const title = [
 //   {
@@ -258,8 +259,8 @@ import {InputField} from "./stories/InputField/InputField"
 
 const App = () => {
   return (
-    <div className="flex relative flex-co w-1/3 mx-auto items-center justify-center h-screen">
-  <InputField label="contact" type="number"/>
+    <div className="flex relative flex-co md:w-1/3 w-2/3 mx-auto items-center justify-center h-screen">
+   <InputField type="email" label="List" icon={<Icons name="list" height="20" width="20" fill="#667085"/>} placeholder="list values" hint="Do not use space between words"/>
     </div>
   );
 };
