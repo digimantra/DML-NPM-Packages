@@ -27,10 +27,9 @@ export const Table = ({ titles = [], rows}) => {
   const numbers = Array.from({ length: 20}, (_, index) => index + 1);
 
   return (
-    <div className="mx-6 my-8 h-full border-2 border-red-100">
-      <div className="overflow-x-auto">
-        <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-          <div className="bg-white divide-y overflow-x-hidden overflow-auto divide-gray-200 h-96">
+    
+     <div className="mx-6 relative mt-4 h-full overflow-x-hidden">
+          <div className="bg-white divide-y overflow-auto divide-gray-200 h-[90%] px-4">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-zinc-50 sticky top-0">
                 <tr>
@@ -57,15 +56,15 @@ export const Table = ({ titles = [], rows}) => {
                 ))}
               </tbody>
             </table>
-          </div>
-        </div>
-      </div>     
+          </div>     
+
+
       {/* pagination buttons */}
-      <div className="flex items-center justify-end mr-12 mt-8 gap-8">
+      <div className=" absolute bottom-4 right-0 flex items-center justify-end mr-12 gap-8">
 
         <div className="flex items-center gap-2">
           <div className="text-xs">Items per Page:</div>
-          <select className="outline-none text-xs border-b border-gray-300" onChange={(e)=>setItemsPerPage(Number(e.target.value))}>
+          <select className="outline-none bg-white text-xs border-b border-gray-300" onChange={(e)=>setItemsPerPage(Number(e.target.value))}>
           {numbers.map((number) => (
             <option className="" key={number} value={number}>{number}</option>
           ))}
@@ -76,15 +75,33 @@ export const Table = ({ titles = [], rows}) => {
 
         
         <div className="flex items-center gap-4">
-          <Icons onClick={()=>handlePageChange(1)} name="leftArrowLast" fill={currentPage===1 ?"#7b7b7d":"#000"} />
+          <Icons
+          onClick={() => handlePageChange(1)}
+    name="leftArrowLast"
+          fill={currentPage === 1 ? "#7b7b7d" : "#000"}
+           />
 
-          <Icons onClick={()=>handlePageChange(1)} name="leftArrow" fill={currentPage===1 ?"#7b7b7d":"#000"} />
+           <Icons
+            onClick={() => handlePageChange(currentPage > 1 ? currentPage - 1 : 1)}
+           name="leftArrow"
+           fill={currentPage === 1 ? "#7b7b7d" : "#000"}
+            />
 
+            <Icons
+             onClick={() =>
+              handlePageChange(currentPage < totalPages ? currentPage + 1 : totalPages)
+             }
+             name="rightArrow"
+             fill={currentPage === totalPages ? "#7b7b7d" : "#000"}
+            />
 
-          <Icons onClick={()=>handlePageChange(currentPage + 1)} name="rightArrow" fill={currentPage===totalPages ?"#7b7b7d":"#000"} />
-
-          <Icons onClick={()=>handlePageChange(totalPages)} name="rightArrowLast" fill={currentPage===totalPages ?"#7b7b7d":"#000"} />
+           <Icons
+            onClick={() => handlePageChange(totalPages)}
+             name="rightArrowLast"
+             fill={currentPage === totalPages ? "#7b7b7d" : "#000"}
+           />
         </div>
+
       </div>
     </div>
   );
@@ -95,4 +112,3 @@ Table.propTypes = {
   rows: PropTypes.array,
   itemsPerPage: PropTypes.number, // Change PropTypes.string to PropTypes.number
 };
-0.

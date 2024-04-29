@@ -8,7 +8,6 @@ ChartJS.register(
 )
 
 export const Chart = ({ data, type , title}) => {
-    console.log(data);
 
     const options = {
         responsive:true,
@@ -45,8 +44,10 @@ export const Chart = ({ data, type , title}) => {
             }
         }
       };
+
+
     return (
-        <div className="md:w-3/4 md:h-96 md:mx-0 px-6 w-full h-full flex items-center justify-center chart-container">
+        <div className="md:w-2/3 md:h-full md:mx-0 px-6">
             {type === "bar" ? (
                 <Bar options={options} data={data} />
             ) : (

@@ -1,5 +1,5 @@
-import {InputField} from "./stories/InputField/InputField"
-import {Icons} from "./stories/Icons/Icons"
+import { useState } from "react";
+import {Menu} from "./stories/Menu/Menu"
 
 // const title = [
 //   {
@@ -157,34 +157,48 @@ import {Icons} from "./stories/Icons/Icons"
 //       order: "GHI780",
 //       price: 130,
 //       status: "resolved"
+//   },{
+//     key:13,
+//       name: "Julius",
+//       age: 38,
+//       email: "julius@example.com",
+//       contact: "+114253655",
+//       order: "GHI780",
+//       price: 130,
+//       status: "resolved"
+//   },{
+//     key:14,
+//       name: "Julius",
+//       age: 38,
+//       email: "julius@example.com",
+//       contact: "+114253655",
+//       order: "GHI780",
+//       price: 130,
+//       status: "resolved"
+//   },{
+//     key:15,
+//       name: "Julius",
+//       age: 38,
+//       email: "julius@example.com",
+//       contact: "+114253655",
+//       order: "GHI780",
+//       price: 130,
+//       status: "resolved"
+//   },{
+//     key:16,
+//       name: "Julius",
+//       age: 38,
+//       email: "julius@example.com",
+//       contact: "+114253655",
+//       order: "GHI780",
+//       price: 130,
+//       status: "resolved"
 //   }
 // ];
 
 
 //For menu
-// const dropMenu = [
-//   {
-//     id:1,
-//     icon:(<IoHomeOutline/>),
 
-//     heading:"Home",
-
-//     drop:["clothings","accessories","Shoes", "Hoodies"],
-
-
-//   },
-//   {
-//     id:2,
-
-//     icon:(<FaListUl/>),
-
-//     heading:"About",
-
-//     drop:["Vision","Mission","team","contact"],
-
-
-//   }
-// ]
 
 //For Charts
 // const lineChartData = {
@@ -199,7 +213,7 @@ import {Icons} from "./stories/Icons/Icons"
 //     },
 //     {
 //       label: "Product2",
-//       data: [200, 300, 250, 100, 150, 800, 400,200, 300, 250, 100, 150,], // Added data point for Sunday
+//       data: [200, 300, 250, 100, 150, 600, 400,200, 300, 250, 100, 150,], // Added data point for Sunday
 //       borderColor: "blue",
 //       backgroundColor: "blue",
 //       stack: 'Stack 2',
@@ -217,7 +231,7 @@ import {Icons} from "./stories/Icons/Icons"
 // };
 
 
-//For notifications
+// For notifications
 // const data = [
 //   {
 //     id: 1,
@@ -257,10 +271,33 @@ import {Icons} from "./stories/Icons/Icons"
 // ];
 
 
+
 const App = () => {
+  const menuItems = [
+    {
+      title: 'Home',
+    },
+    {
+      title: 'Services',
+      submenu: [
+        {
+          title: 'Service 1',
+        },
+        {
+          title: 'Service 2',
+        },
+      ],
+    },
+    {
+      title: 'About Us',
+    },
+  ];
+
+
   return (
-    <div className="flex relative flex-co md:w-1/3 w-2/3 mx-auto items-center justify-center h-screen">
-   <InputField type="email" label="List" icon={<Icons name="list" height="20" width="20" fill="#667085"/>} placeholder="list values" hint="Do not use space between words"/>
+    <div className="flex items-center justify-center h-screen">
+    <Menu title="Menu" items={menuItems}/>
+
     </div>
   );
 };

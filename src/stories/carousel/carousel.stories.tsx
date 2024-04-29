@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Story } from "@storybook/react";
 
 import Carousel, { ICarouselProps } from ".";
-import { ADPIcon } from "../adpIcon";
+// import { ADPIcon } from "../adpIcon";
 
 export default {
   component: Carousel,

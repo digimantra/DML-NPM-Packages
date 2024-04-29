@@ -30,7 +30,7 @@ export const InputField = forwardRef(
     const classHandler = () => {
       switch (type) {
         case "textarea":
-          return `appearance-none block w-full text-zinc-700 border border-grayMain rounded-lg py-2.5 ${icon ? "px-10" : "px-3.5"} shadow-sm text-base leading-6 font-normal focus:outline-none focus:border-[#d6bbfb] focus:shadow-md focus:shadow-[#f4ebff] disabled:bg-[#f9fafb] disabled:shadow-sm ${errorMessage && `shadow-md shadow-[#fda29b]`}`;
+          return `appearance-none block w-full text-zinc-700 border border-grayMain rounded-lg py-2.5 ${icon ? "px-10" : "px-3.5"} shadow-sm text-base leading-6 font-normal focus:outline-none focus:border-[#d6bbfb] focus:shadow-md focus:shadow-[#f4ebff] ${disabled && "bg-[#f9fafb] shadow-sm"} ${errorMessage && `shadow-md shadow-[#fda29b]`}`;
 
         case "radio":
           return `default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`;
@@ -39,7 +39,7 @@ export const InputField = forwardRef(
           return `w-4 h-4 accent-[#e11d07] bg-gray-100 border-red-300 rounded-lg`;
 
         default:
-          return `appearance-none block w-full text-zinc-700 border border-grayMain rounded-lg py-2.5 ${icon ? "px-10" : "px-3.5"} ${selectList && "pl-16"} shadow-sm text-base leading-6 font-normal focus:outline-none focus:border-[#d6bbfb] focus:shadow-md focus:shadow-[#f4ebff] disabled:bg-[#f9fafb] disabled:shadow-sm ${errorMessage && `shadow-md shadow-[#fda29b]`}`;
+          return `appearance-none block w-full text-zinc-700 border border-grayMain rounded-lg py-2.5 ${icon ? "px-10" : "px-3.5"} ${selectList && "pl-16"} shadow-sm text-base leading-6 font-normal focus:outline-none focus:border-[#d6bbfb] focus:shadow-md focus:shadow-[#f4ebff]  ${disabled && "bg-[#f9fafb] shadow-sm"} ${errorMessage && `shadow-md shadow-[#fda29b]`}`;
       }
     };
 
