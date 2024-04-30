@@ -40,19 +40,20 @@ const [ show, setShow] = useState(false)
 
   return (
 
+
   <div className="relative">
         {/* TOP NOTIFICATION INDICATOR */}
-    <div onClick={()=> setShow(!show)} className="mt-0.5 relative w-fit  cursor-pointer">
-
-        {!allRead &&(
-         <div className="absolute p-1 bg-red-500 rounded-full left-2"></div>
-        )}
-
+    <div onClick={()=> setShow(!show)} className="mt-0.5 relative cursor-pointer">
+        
         {icon}
     </div>
 
+    {!allRead &&(
+         <div className="absolute p-1 bg-red-500 rounded-full top-0 left-5"></div>
+    )}
 
-    <div className={`${show ? "": "hidden"} absolute z-10 top-8 -translate-x-6  w-72 h-auto px-4 bg-[#fafbff] shadow-lg rounded-lg`}>
+
+    <div className={`${show ? "": "hidden"} absolute z-10 top-8 -translate-x-2  w-80 h-auto px-4 bg-[#fafbff] shadow-lg rounded-lg`}>
       {/* Notifications heading */}
       <div className="flex items-center justify-between py-3.5 px-2">
         <div className="font-medium text-xs leading-4">Notifications</div>
@@ -71,7 +72,7 @@ const [ show, setShow] = useState(false)
 
 
           <div className={`flex items-start gap-2 ${
-          readStatus[el.id] ? "bg-gray-50" : "bg-gray-200"
+          readStatus[el.id] ? "bg-white" : "bg-gray-100"
         } cursor-pointer p-2 rounded-md`}>
 
           <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
