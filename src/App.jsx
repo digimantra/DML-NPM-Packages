@@ -1,29 +1,16 @@
-import { If, Else, Then } from "./stories/Conditionals";
+import { Case, Default, Switch } from "./stories/Conditionals";
 
 const App = () => {
-  const age = 19;
-
-  const isDrink = age > 18;
-
-  // Example age and drinkingAge
-  function createAsyncBoolean(value) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(value); // Resolves with the provided boolean value
-      }, 2000); // Simulating a delay of 1 second
-    });
-  }
+  
+  const num = 7;
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <If condition={createAsyncBoolean(isDrink)}>
-        <Then>
-          <div>You are old enough to drink!</div>
-        </Then>
-        <Else>
-          <div>You are not old enough to drink.</div>
-        </Else>
-      </If>
+      <Switch>
+      <Case condition={num === 8}>Number is right</Case>
+      <Case condition={num ===0 }>Number is zero</Case>
+      <Default>This is default</Default>=
+      </Switch>
     </div>
   );
 };
