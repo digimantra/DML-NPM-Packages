@@ -4,54 +4,12 @@ a {
   }
 
   .menu {
-    display: block;
-    position: relative;
-    cursor: pointer;
+    @apply block relative cursor-pointer
   }
 
   .menu-title {
-    display: block;
-    width: 200px;
-    height: 40px;
-    padding: 12px 0 0;
-    background: #9dc852;
-    text-align: center;
-    color: #ffffff;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.3s blue;
+  @apply block w-52 h-10 py-4 bg-[#9dc852] text-center text-white font-bold uppercase transition-all
   }
-
-  /* .menu-title:before {
-    content: "";
-    display: block;
-    height: 0;
-    border-top: 5px solid #9dc852;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 0 solid #dddddd;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 101;
-    transition:
-      0.2s 0.2s border-top ease-out,
-      0.3s border-top-color;
-  } */
-
-  /* .menu-title:after {
-    content: "";
-    display: block;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 0 solid #ebebeb;
-    position: absolute;
-    bottom: 0;
-    left: 35%;
-    z-index: 101;
-    transition: 0.2s border-bottom ease-in;
-  } */
   
   .menu:hover > .menu-title:after {
     border-bottom-width: 5px;
@@ -67,36 +25,16 @@ a {
   .menu-title_3rd:hover { background: #b96666; }
   .menu-title_3rd:before { border-top-color: #c97676; }
   .menu-title_3rd:hover:before { border-top-color: #b96666; }
-  
-  .menu-title_4th { background: #dbab58; }
-  .menu-title_4th:hover { background: #cb9b48; }
-  .menu-title_4th:before { border-top-color: #dbab58; }
-  .menu-title_4th:hover:before { border-top-color: #cb9b48; }
-  
+
   .menu-dropdown {
     min-width: 100%;
     padding: 15px 0;
-    position: absolute;
     background: #ebebeb;
     z-index: 100;
     transition:
       0.5s padding,
       0.5s background;
   }
-  
-  /* .menu-dropdown:after {
-    content: "";
-    display: block;
-    height: 0;
-    border-top: 5px solid #ebebeb;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 101;
-    transition: 0.5s border-top;
-  } */
   
   .menu:not(:hover) > .menu-dropdown {
     padding: 2px 0;

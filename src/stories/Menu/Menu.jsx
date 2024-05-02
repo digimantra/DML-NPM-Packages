@@ -4,7 +4,7 @@ import "./Menu.css"
 export const Menu = () => {
   return (
     <div className="relative inline-block text-left">
-      <ul className="flex items-center">
+      <ul className="flex flex-col items-center">
         <li>
           <a href="#click" className="menu">
             <h2 className="menu-title">animals</h2>
@@ -27,23 +27,6 @@ export const Menu = () => {
             </ul>
           </a>
         </li>
-        <li>
-          <a href="#click" className="menu">
-            <h2 className="menu-title menu-title_3rd">things</h2>
-            <ul className="menu-dropdown">
-              <li>bench</li>
-              <li>pizza</li>
-              <li>Honda CB125</li>
-              <li>space</li>
-              <li>black matter</li>
-              <li>apple</li>
-              <li>philodendron</li>
-              <li>liver</li>
-              <li>brass</li>
-            </ul>
-          </a>
-        </li>
-      
       </ul>
     </div>
   );
