@@ -1,13 +1,12 @@
 import PropTypes from "prop-types";
-import React, { Fragment} from "react";
+import React, { Fragment } from "react";
 import { Else } from "./Else";
 import { useAsyncCondition } from "./useAsyncCondition";
 
 export const If = ({ condition, children }) => {
+  const resolveCondition = useAsyncCondition(condition);
 
-    const resolveCondition = useAsyncCondition(condition);
-
-    if (resolveCondition === null) return null;
+  if (resolveCondition === null) return null;
 
   return (
     <Fragment>
@@ -21,7 +20,7 @@ export const If = ({ condition, children }) => {
 If.propTypes = {
   condition: PropTypes.oneOfType([
     PropTypes.bool,
-    PropTypes.func // Allow condition to be a function
+    PropTypes.func, // Allow condition to be a function
   ]).isRequired,
   children: PropTypes.node.isRequired,
 };

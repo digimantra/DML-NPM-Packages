@@ -1,7 +1,14 @@
 import PropTypes from "prop-types";
 import { IconsData } from "./IconsData";
 
-export const Icons = ({ name, width="15", filled, height="15", fill, onClick }) => {
+export const Icons = ({
+  name,
+  width = "15",
+  filled,
+  height = "15",
+  fill,
+  onClick,
+}) => {
   const icon = IconsData[name];
 
   if (!icon) {
@@ -69,5 +76,5 @@ Icons.propTypes = {
   height: PropTypes.string,
   fill: PropTypes.string,
   filled: PropTypes.bool,
-  onClick:PropTypes.func
+  onClick: PropTypes.func,
 };

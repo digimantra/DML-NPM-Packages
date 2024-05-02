@@ -19,7 +19,6 @@ export const Button = React.forwardRef(
   ) => {
     const typeHandler = () => {
       switch (type) {
-
         case "primary":
           return `text-white bg-darkBlack ${disabled ? "cursor-not-allowed bg-grayMain text-[#666666]" : "cursor-pointer"} px-4 py-[13px]`;
 
@@ -27,7 +26,7 @@ export const Button = React.forwardRef(
           return `text-darkBlack ${disabled ? "cursor-not-allowed text-gray-500" : "cursor-pointer"} bg-white border border-grayMain px-4 py-3`;
 
         default:
-          return  `text-black ${background} ${disabled && "opacity-50"} ${background ?"" :"border border-dashed border-grayMain"}`;
+          return `text-black ${background} ${disabled && "opacity-50"} ${background ? "" : "border border-dashed border-grayMain"}`;
       }
     };
 
@@ -37,11 +36,12 @@ export const Button = React.forwardRef(
         disabled={disabled ? true : false}
         onClick={onClick}
         style={{
-          ...((type !== "primary" && type !== "secondary") && {
-            backgroundColor: background,
-            color: textColor,
-            padding: `${py}px ${px}px`,
-          })
+          ...(type !== "primary" &&
+            type !== "secondary" && {
+              backgroundColor: background,
+              color: textColor,
+              padding: `${py}px ${px}px`,
+            }),
         }}
         className={`rounded-lg ease-in-out transition-all ${full ? "w-full" : ""}  ${typeHandler()}`}
       >
