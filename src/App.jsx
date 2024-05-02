@@ -1,16 +1,31 @@
-import { Case, Default, Switch } from "./stories/Conditionals";
+import { If, Else, Then, Loading} from "./stories/Conditionals";
+
 
 const App = () => {
-  
-  const num = 7;
+
+  function test() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(false); // Resolving with true after 2000 milliseconds
+      }, 2000);
+    });
+  }
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <Switch>
-      <Case condition={num === 8}>Number is right</Case>
-      <Case condition={num ===0 }>Number is zero</Case>
-      <Default>This is default</Default>=
-      </Switch>
+      <div className="flex items-center justify-center h-screen">
+      <If condition={12 > 10}>
+
+        <Loading>loading..</Loading>
+        <Then>
+          <div>You are old enough to drink</div>
+        </Then>
+
+        <Else>
+          <div>Not old enough.</div>
+        </Else>
+      </If>
+    </div>
     </div>
   );
 };

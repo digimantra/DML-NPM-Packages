@@ -1,12 +1,17 @@
 import React from "react";
-import { getConditionResult } from "./getConditionResult";
 import {Case } from "./case"
 import { Default} from "./default"
 import PropTypes from "prop-types";
 
+const getConditionResult = (condition) => {
+  const conditionResult = Boolean(
+    typeof condition === "function" ? condition() : condition
+  );
+
+  return conditionResult;
+};
 
 export const Switch = ({ children }) => {
-    // -- Inspired by react-router --
   
     let matchingCase = undefined;
     let defaultCase = undefined;
