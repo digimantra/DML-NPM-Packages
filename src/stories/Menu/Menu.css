@@ -11,11 +11,11 @@ a {
   @apply block w-52 h-10 py-4 bg-[#9dc852] text-center text-white font-bold uppercase transition-all
   }
   
-  .menu:hover > .menu-title:after {
+  /* .menu:hover > .menu-title:after {
     border-bottom-width: 5px;
     transition: 0.2s 0.2s border-bottom-width ease-out;
   }
-  
+   */
   .menu-title_2nd { background: #4e96b3; }
   .menu-title_2nd:hover { background: #3e86a3; }
   .menu-title_2nd:before { border-top-color: #4e96b3; }

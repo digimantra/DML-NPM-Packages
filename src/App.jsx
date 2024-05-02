@@ -1,16 +1,30 @@
-// import { If, Else, Then, Loading} from "./stories/Conditionals";
-// import { InputField} from "./stories/InputField/InputField"
-import { Menu } from "./stories/Menu/Menu";
+import {
+  Switch,
+  Case,
+  Default,
+} from "./stories/Conditionals";
 
 const App = () => {
+  const num = 2.888;
+
+  // Function to check if a number is odd
+  const isOdd = (number) => {
+    return number % 2 !== 0;
+  };
+
   return (
     <div className="flex items-center justify-center mt-10">
-        <Menu />
+      <Switch>
+        <Case condition={() => num === 2}>Num is two</Case>
+        <Case condition={() => num > 2 && isOdd(num)}>Num is greater than two and odd.</Case>
+        <Default>Num is greater than two and even.</Default>
+      </Switch>
     </div>
   );
 };
 
 export default App;
+
 
 {
   /* <If condition={input === "email"}>
