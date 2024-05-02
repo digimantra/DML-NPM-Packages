@@ -43,8 +43,6 @@ const useAsyncCondition = (condition) => {
 export const If = ({ condition, children }) => {
   const resolveCondition = useAsyncCondition(condition);
 
-  console.log(resolveCondition);
-
   if (resolveCondition === null) {
     const hasFallback = React.Children.toArray(children).find(
       (c) => c.type === Loading
