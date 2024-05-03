@@ -1,6 +1,6 @@
+import { ComponentProps } from "react";
+type ButtonProps = ComponentProps<"button">;
 
-export const Button = () => {
-  return (
-    <div className="bg-red-100">Button</div>
-  )
-}
+export const Button = ({...props}:ButtonProps) => {
+  return <button className="text-red-400" {...props}/>;
+};
