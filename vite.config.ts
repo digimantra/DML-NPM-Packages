@@ -1,7 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import reactRefresh from "@vitejs/plugin-react-refresh";
+import { resolve } from "path";
+import { defineConfig } from "vite";
+import WindiCSS from "vite-plugin-windicss";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [
+    reactRefresh(),
+    WindiCSS(), // Add WindiCSS plugin
+  ],
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src"), // Add aliases for convenience
+    },
+  },
+});

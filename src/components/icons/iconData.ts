@@ -223,6 +223,20 @@ export const IconsData = {
     },
   },
 
+  check: {
+    stroke: true,
+    outline: {
+      d1: "M1.125 7.125L6.375 12.375L16.875 1.125",
+
+      d2: "",
+    },
+    filled: {
+      d1: "",
+
+      d2: "",
+    },
+  },
+
   ellipsis: {
     stroke: true,
     outline: {

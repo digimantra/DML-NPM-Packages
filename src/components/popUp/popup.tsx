@@ -15,11 +15,11 @@ export const Popup: React.FC<PopupProps> & {
 } = ({ show, setShow, children, icon, iconBackground }) => {
   return (
     <div
-      className={`${show ? "visible" : "hidden"} fixed top-0 inset-0 bg-white bg-opacity-25 backdrop-blur-sm border border-x-gray-600 flex justify-center items-center w-full`}
+      className={`${show ? "visible" : "hidden"} fixed top-0 inset-0 bg-white bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full`}
     >
       <div className="relative">
         <div
-          className={`bg-white py-4 rounded-lg shadow-md text-center border-t border-teal-100`}
+          className={`bg-white px-8 py-4 rounded-lg shadow-md text-center border-t border-teal-100`}
         >
           {icon && (
             <div className="flex items-center justify-center mb-2">

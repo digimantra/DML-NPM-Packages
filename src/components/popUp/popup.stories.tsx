@@ -1,7 +1,9 @@
 import type { Meta, Story } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { useState } from "react";
-import { Popup } from "./popUp";
+import { Button } from "../button/button";
+import { Icons } from "../icons/icons";
+import { Popup } from "./popup";
 
 // Meta information for the Button component
 const meta: Meta<typeof Popup> = {
@@ -25,16 +27,23 @@ const Template: Story = (args) => {
     <>
       <button onClick={() => setShowPopup(true)}>Open Popup</button>
 
-      <Popup {...args} show={showPopup} setShow={setShowPopup}>
+      <Popup
+        {...args}
+        show={showPopup}
+        setShow={setShowPopup}
+        iconBackground="#e6ffe4"
+      >
         <Popup.Header>
-          <div>Success</div>
+          <div>Success!</div>
         </Popup.Header>
 
         <Popup.Content>
-          <div>Update successfully</div>
+          <div>Shipment Created Successfully</div>
         </Popup.Content>
 
-        <Popup.Footer>Popup Footer</Popup.Footer>
+        <Popup.Footer>
+          <Button type="primary" label="Done" full />
+        </Popup.Footer>
       </Popup>
     </>
   );
@@ -43,6 +52,6 @@ const Template: Story = (args) => {
 // Default story for the Popup component
 export const Default = Template.bind({});
 Default.args = {
-  icon: null,
+  icon: <Icons name="check" height="20" width="20" fill="#27cd2f" />,
   iconBackground: "#FFFFFF",
 };
