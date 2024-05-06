@@ -1,5 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
+import type { Meta, Story } from "@storybook/react";
+import { fn } from "@storybook/test";
 import { Button } from ".";
+
+// Meta information for the Button component
 const meta: Meta<typeof Button> = {
   title: "components/Button",
   component: Button,
@@ -7,15 +11,41 @@ const meta: Meta<typeof Button> = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  argTypes: {
+    background: { control: "color" },
+    textColor: { control: "color" },
+  },
+
+  args: { onClick: fn() },
 };
 
+// Export the meta information
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+// Define the story template
+const Template: Story = (args: any) => <Button {...args} />;
 
-export const Default: Story = {
-  args: {
-    children: "Click me",
+// Default story for the Button component
+export const Default = Template.bind({});
+Default.args = {
+  label: "Click me",
+  type: "default",
+  px: 16,
+  py: 12,
+};
 
-  },
+// Story for the primary variant of the Button component
+export const Primary = Template.bind({});
+Primary.args = {
+  label: "Primary",
+  type: "primary",
+  onClick: action("clicked"),
+};
+
+// Story for the secondary variant of the Button component
+export const Secondary = Template.bind({});
+Secondary.args = {
+  label: "Secondary",
+  type: "secondary",
+  onClick: action("clicked"),
 };
