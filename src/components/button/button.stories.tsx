@@ -1,7 +1,7 @@
 import { action } from "@storybook/addon-actions";
 import type { Meta, Story } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { Button } from ".";
+import { Button } from "./button";
 
 // Meta information for the Button component
 const meta: Meta<typeof Button> = {
@@ -30,6 +30,7 @@ export const Default = Template.bind({});
 Default.args = {
   label: "Click me",
   type: "default",
+  disabled: false,
   px: 16,
   py: 12,
 };
@@ -40,6 +41,7 @@ Primary.args = {
   label: "Primary",
   type: "primary",
   onClick: action("clicked"),
+  disabled: false,
 };
 
 // Story for the secondary variant of the Button component
@@ -47,5 +49,6 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   label: "Secondary",
   type: "secondary",
+  disabled: false,
   onClick: action("clicked"),
 };
