@@ -1,5 +1,5 @@
 // Import necessary modules
-import type { Meta } from "@storybook/react";
+import type { Meta, Story } from "@storybook/react";
 import { IconsData } from "./iconData";
 import { Icons } from "./icons";
 // Import your data
@@ -13,14 +13,28 @@ const meta: Meta<typeof Icons> = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    fill: { control: "color" },
+  },
 };
 
 export default meta;
 
 // Define the Template story
 
-export const Default = () => (
+const Template: Story = (args: any) => <Icons {...args} />;
+
+// Default story for the Button component
+export const Default = Template.bind({});
+Default.args = {
+  name: "warehouse",
+  height: "20",
+  width: "20",
+  filled: true,
+  fill: "#000",
+};
+
+export const Outline = () => (
   <>
     <div className="flex flex-wrap items-center gap-4 justify-center">
       {Object.keys(IconsData).map((iconName) => {
