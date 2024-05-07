@@ -1,10 +1,13 @@
 {
   "name": "DML-NPM-PACKAGE",
-  "private": true,
   "version": "1.0.0",
   "description": "a reusable component library",
   "author": "Narinder Kumar",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digimantra/DML-NPM-Packages.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
