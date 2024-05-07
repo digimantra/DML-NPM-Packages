@@ -1,5 +1,6 @@
 import type { Meta, Story } from "@storybook/react";
 import { fn } from "@storybook/test";
+import { Icons } from "../icons/icons";
 import { Notifications } from "./notification";
 
 // Meta information for the Button component
@@ -24,7 +25,7 @@ const Template: Story = (args: any) => <Notifications {...args} />;
 // Default story for the Button component
 export const Default = Template.bind({});
 Default.args = {
-  icon: "o",
+  icon: <Icons name="notification" height="20" width="20" filled fill="#000" />,
   data: [
     {
       id: 1,

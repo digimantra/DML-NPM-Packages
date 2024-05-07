@@ -53,7 +53,7 @@ export const Notifications: React.FC<NotificationsProps> = ({ data, icon }) => {
       </div>
 
       {!allRead && (
-        <div className="absolute p-1 bg-red-500 rounded-full top-0 left-5"></div>
+        <div className="absolute p-1 bg-red-500 rounded-full top-0 left-3"></div>
       )}
 
       <div
@@ -66,7 +66,7 @@ export const Notifications: React.FC<NotificationsProps> = ({ data, icon }) => {
           <div className="font-medium text-xs leading-4">Notifications</div>
           <div
             onClick={markAllAsRead}
-            className="text-xs font-normal leading-[14px] text-red-800 cursor-pointer"
+            className="text-xs font-normal leading-[14px] text-[#E11D07]  cursor-pointer"
           >
             Mark all as read
           </div>
