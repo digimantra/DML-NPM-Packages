@@ -1,7 +1,9 @@
 {
-  "name": "storybookproject",
+  "name": "DML-NPM-PACKAGE",
   "private": true,
   "version": "1.0.0",
+  "description": "a reusable component library",
+  "author": "Narinder Kumar",
   "type": "module",
   "scripts": {
     "dev": "vite",
