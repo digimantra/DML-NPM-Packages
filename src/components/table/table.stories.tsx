@@ -180,14 +180,17 @@ const mockRows = [
 ];
 
 // Template for the Storybook story
-const Template: Story = (args) => {
+const Template: Story = (args: any) => {
   return (
     <div className="h-screen">
-      <Table titles={mockTitles} rows={mockRows} />;
+      <Table {...args} titles={mockTitles} rows={mockRows} />;
     </div>
   );
 };
 
 // Default story for the Table component
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  titles: [],
+  rows: [],
+};
