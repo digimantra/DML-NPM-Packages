@@ -1,30 +1,31 @@
-import {
-  Switch,
-  Case,
-  Default,
-} from "./stories/Conditionals";
+import { Notifications } from "./stories/Notifications/Notifications";
+
+const data = [
+
+  {
+    id: 1,
+    notificationContent: "You have a new message",
+    dateTime: "2024-05-06 10:30 AM",
+  },
+  {
+    id: 2,
+    notificationContent: "New friend request",
+    dateTime: "2024-05-05 3:45 PM",
+  },
+  {
+    id: 3,
+    notificationContent: "Your post has been liked",
+    dateTime: "2024-05-04 9:15 AM",
+  },
+]
 
 const App = () => {
-  const num = 2.888;
-
-  // Function to check if a number is odd
-  const isOdd = (number) => {
-    return number % 2 !== 0;
-  };
-
   return (
-    <div className="flex items-center justify-center mt-10">
-      <Switch>
-        <Case condition={() => num === 2}>Num is two</Case>
-        <Case condition={() => num > 2 && isOdd(num)}>Num is greater than two and odd.</Case>
-        <Default>Num is greater than two and even.</Default>
-      </Switch>
-    </div>
+  <Notifications data={data} icon="o"/>
   );
 };
 
 export default App;
-
 
 {
   /* <If condition={input === "email"}>

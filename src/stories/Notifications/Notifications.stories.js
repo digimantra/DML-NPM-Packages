@@ -13,8 +13,10 @@ export default {
 
 export const Default = {
   args: {
-
-
+    icon: "o",
+    data: [
+      
+    ],
   },
 };
 
