@@ -1,13 +1,9 @@
 {
-  "name": "@dml/components",
+  "name": "@dml/ui-components",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a reusable component library",
   "author": "Narinder Kumar",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/digimantra/DML-NPM-Packages.git"
-  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -16,6 +12,10 @@
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digimantra/DML-NPM-Packages.git"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
