@@ -1,7 +1,7 @@
 {
-  "name": "@dml/ui-components",
+  "name": "dml/ui-components",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "a reusable component library",
   "author": "Narinder Kumar",
   "scripts": {
