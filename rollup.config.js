@@ -4,7 +4,6 @@ import image from "@rollup/plugin-image";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
-import path from "path";
 import copy from "rollup-plugin-copy";
 import postcss from "rollup-plugin-postcss";
 import pkg from "./package.json";
@@ -30,7 +29,8 @@ export default [
       typescript(),
       image(),
       postcss({
-        extract: path.resolve("dist/css/index.min.css"),
+        plugins: [require("tailwindcss"), require("autoprefixer")],
+        extract: false, // No need to extract, we're inlining
         minimize: true,
       }),
       copy({

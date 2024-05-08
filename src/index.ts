@@ -1,3 +1,4 @@
+import "./index.css";
 export { Actions } from "./components/actions/actions";
 export { Avatar } from "./components/avatar/avatar";
 export { Button } from "./components/button/button";
