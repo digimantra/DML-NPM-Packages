@@ -1,19 +1,17 @@
 import type { Meta, StoryFn } from "@storybook/react";
-import { fn } from "@storybook/test";
 import { Icons } from "../icons/icons";
 import { Notifications } from "./notification";
 
 // Meta information for the Button component
 const meta: Meta<typeof Notification> = {
   title: "Components/Notifications",
+  // @ts-ignore
   component: Notifications,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
   argTypes: {},
-
-  args: { onClick: fn() },
 };
 
 // Export the meta information

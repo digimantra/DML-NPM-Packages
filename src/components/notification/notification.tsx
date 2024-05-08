@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
 
 interface Notification {
@@ -140,9 +139,4 @@ export const Notifications: React.FC<NotificationsProps> = ({ data, icon }) => {
       </div>
     </div>
   );
-};
-
-Notifications.propTypes = {
-  data: PropTypes.array.isRequired,
-  icon: PropTypes.any,
 };

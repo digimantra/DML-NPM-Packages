@@ -1,9 +1,4 @@
-import React, {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
 interface Option {
   id: string;
@@ -129,7 +124,7 @@ export const InputField = forwardRef<HTMLDivElement, Props>(
         return true;
       } else if (type === "number") {
         if (
-          isNaN(inputValue as number) ||
+          !(typeof inputValue === "number") ||
           !inputValue ||
           (inputValue as string).length < 10
         ) {
@@ -148,6 +143,8 @@ export const InputField = forwardRef<HTMLDivElement, Props>(
       }
     };
 
+    console.log(combinedData);
+
     useEffect(() => {
       if (selectList && type === "number" && inputValue && selectedOption) {
         setCombinedData({ number: inputValue, select: selectedOption });
@@ -164,13 +161,13 @@ export const InputField = forwardRef<HTMLDivElement, Props>(
       }
     };
 
-    useImperativeHandle(ref, () => ({
-      validate: () => {
-        const isValid = handleValidation();
+    // useImperativeHandle(ref, () => ({
+    //   validate: () => {
+    //     const isValid = handleValidation();
 
-        return isValid; // Return the validation status
-      },
-    }));
+    //     return isValid; // Return the validation status
+    //   },
+    // }));
 
     const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
       const inputValue =
@@ -179,6 +176,7 @@ export const InputField = forwardRef<HTMLDivElement, Props>(
           : event.target.value;
       setInputValue(inputValue);
       if (onChange) {
+        // @ts-ignore
         onChange(inputValue);
       }
     };

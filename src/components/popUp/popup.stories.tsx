@@ -1,5 +1,4 @@
 import type { Meta, StoryFn } from "@storybook/react";
-import { fn } from "@storybook/test";
 import { useState } from "react";
 import { Button } from "../button/button";
 import { Icons } from "../icons/icons";
@@ -14,8 +13,6 @@ const meta: Meta<typeof Popup> = {
   },
   tags: ["autodocs"],
   argTypes: {},
-
-  args: { onChange: fn() },
 };
 
 // Export the meta information
@@ -42,7 +39,7 @@ const Template: StoryFn = (args) => {
         </Popup.Content>
 
         <Popup.Footer>
-          <Button type="primary" label="Done" full />
+          <Button buttonType="primary" label="Done" full />
         </Popup.Footer>
       </Popup>
     </>

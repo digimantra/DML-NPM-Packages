@@ -29,7 +29,7 @@ const Template: StoryFn = (args: any) => <Button {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   label: "Click me",
-  type: "default",
+  buttonType: "default",
   disabled: false,
   px: 16,
   py: 12,
@@ -39,7 +39,7 @@ Default.args = {
 export const Primary = Template.bind({});
 Primary.args = {
   label: "Primary",
-  type: "primary",
+  buttonType: "primary",
   onClick: action("clicked"),
   disabled: false,
 };
@@ -48,7 +48,7 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: "Secondary",
-  type: "secondary",
+  buttonType: "secondary",
   disabled: false,
   onClick: action("clicked"),
 };

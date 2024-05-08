@@ -1,6 +1,5 @@
 import React from "react";
 import { IconsData } from "./iconData";
-
 interface IconsProps {
   name: string;
   width?: string;
@@ -18,6 +17,7 @@ export const Icons: React.FC<IconsProps> = ({
   fill,
   onClick,
 }) => {
+  // @ts-ignore
   const icon = IconsData[name];
 
   if (!icon) {

@@ -38,6 +38,7 @@ export const Outline = () => (
   <>
     <div className="flex flex-wrap items-center gap-4 justify-center">
       {Object.keys(IconsData).map((iconName) => {
+        // @ts-ignore
         const icon = IconsData[iconName];
         if (icon.outline.d1 || icon.outline.d2) {
           return (
@@ -65,6 +66,7 @@ export const Filled = () => (
   <>
     <div className="flex flex-wrap items-center gap-4 justify-center">
       {Object.keys(IconsData).map((iconName) => {
+        // @ts-ignore
         const icon = IconsData[iconName];
         if (icon.filled.d1 || icon.filled.d2) {
           return (

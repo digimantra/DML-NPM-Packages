@@ -10,10 +10,7 @@ const meta: Meta<typeof InputField> = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  argTypes: {
-    background: { control: "color" },
-    textColor: { control: "color" },
-  },
+  argTypes: {},
 
   args: { onChange: fn() },
 };

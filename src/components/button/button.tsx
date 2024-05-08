@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   icon?: ReactNode;
-  type?: "default" | "primary" | "secondary";
+  buttonType?: string;
   background?: string;
   textColor?: string;
   px?: number;
@@ -15,7 +15,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       label,
-      type = "default",
+      buttonType = "default",
       icon,
       background,
       textColor,
@@ -29,7 +29,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const typeHandler = () => {
-      switch (type) {
+      switch (buttonType) {
         case "primary":
           return `text-white bg-darkBlack ${disabled ? "cursor-not-allowed bg-grayMain text-[#666666]" : "cursor-pointer"} px-4 py-[13px]`;
 
@@ -47,8 +47,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         onClick={onClick}
         style={{
-          ...(type !== "primary" &&
-            type !== "secondary" && {
+          ...(buttonType !== "primary" &&
+            buttonType !== "secondary" && {
               backgroundColor: background,
               color: textColor,
               padding: `${py}px ${px}px`,
