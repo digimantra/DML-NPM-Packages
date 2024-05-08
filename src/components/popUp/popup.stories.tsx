@@ -1,4 +1,4 @@
-import type { Meta, Story } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { useState } from "react";
 import { Button } from "../button/button";
@@ -21,7 +21,7 @@ const meta: Meta<typeof Popup> = {
 // Export the meta information
 export default meta;
 
-const Template: Story = (args) => {
+const Template: StoryFn = (args) => {
   const [showPopup, setShowPopup] = useState(false);
   return (
     <>

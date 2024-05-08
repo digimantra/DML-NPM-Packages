@@ -1,4 +1,4 @@
-import type { Meta, Story } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { Icons } from "../icons/icons";
 import { Notifications } from "./notification";
@@ -20,7 +20,7 @@ const meta: Meta<typeof Notification> = {
 export default meta;
 
 // Define the story template
-const Template: Story = (args: any) => <Notifications {...args} />;
+const Template: StoryFn = (args: any) => <Notifications {...args} />;
 
 // Default story for the Button component
 export const Default = Template.bind({});

@@ -1,9 +1,10 @@
 {
-  "name": "dml-react-ui",
-  "private": false,
+  "name": "dmlreactui",
   "version": "1.0.0",
   "description": "a reusable component library",
-  "author": "Narinder Kumar",
+  "author": "DMLabs",
+  "license": "ISC",
+  "module": "index.html",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

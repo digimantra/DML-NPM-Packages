@@ -1,5 +1,5 @@
 import { action } from "@storybook/addon-actions";
-import type { Meta, Story } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 
 import { Actions } from "./actions";
 
@@ -15,7 +15,7 @@ const meta: Meta<typeof Actions> = {
 
 export default meta;
 
-const Template: Story = (args: any) => <Actions {...args} />;
+const Template: StoryFn = (args: any) => <Actions {...args} />;
 
 // Default story for the Button component
 export const Default = Template.bind({});

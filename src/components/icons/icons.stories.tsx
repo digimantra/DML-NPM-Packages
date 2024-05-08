@@ -1,5 +1,5 @@
 // Import necessary modules
-import type { Meta, Story } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { IconsData } from "./iconData";
 import { Icons } from "./icons";
 // Import your data
@@ -22,7 +22,7 @@ export default meta;
 
 // Define the Template story
 
-const Template: Story = (args: any) => <Icons {...args} />;
+const Template: StoryFn = (args: any) => <Icons {...args} />;
 
 // Default story for the Button component
 export const Default = Template.bind({});

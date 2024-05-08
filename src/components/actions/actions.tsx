@@ -98,7 +98,7 @@ export const Actions: React.FC<ActionsProps> = ({
 
       {show && (
         <div
-          className={`font-sans p-2 absolute ${handlePosition()} z-10 w-28 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+          className={`font-sans p-2 absolute ${handlePosition()} z-10 w-28 origin-top-right rounded-md bg-white shadow-md border border-gray-100`}
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="menu-button"

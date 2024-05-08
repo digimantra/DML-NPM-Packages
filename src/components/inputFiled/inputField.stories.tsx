@@ -1,4 +1,4 @@
-import type { Meta, Story } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { InputField } from "./inputField";
 
@@ -22,7 +22,7 @@ const meta: Meta<typeof InputField> = {
 export default meta;
 
 // Define the story template
-const Template: Story = (args: any) => <InputField {...args} />;
+const Template: StoryFn = (args: any) => <InputField {...args} />;
 
 // Default story for the Button component
 export const Default = Template.bind({});

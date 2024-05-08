@@ -1,4 +1,4 @@
-import type { Meta, Story } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { Table } from "./table";
 
 // Meta information for the Button component
@@ -180,7 +180,7 @@ const mockRows = [
 ];
 
 // Template for the Storybook story
-const Template: Story = (args: any) => {
+const Template: StoryFn = (args: any) => {
   return (
     <div className="h-screen">
       <Table {...args} titles={mockTitles} rows={mockRows} />;

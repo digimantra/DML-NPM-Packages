@@ -1,4 +1,5 @@
-import type { Meta, Story } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
+
 import { Avatar } from "./avatar";
 
 const meta: Meta<typeof Avatar> = {
@@ -17,7 +18,7 @@ const meta: Meta<typeof Avatar> = {
 
 export default meta;
 
-const Template: Story = (args: any) => <Avatar {...args} />;
+const Template: StoryFn = (args: any) => <Avatar {...args} />;
 
 // Default story for the Button component
 export const Default = Template.bind({});

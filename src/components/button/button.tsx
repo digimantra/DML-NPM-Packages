@@ -3,11 +3,11 @@ import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   icon?: ReactNode;
-  type?: string;
+  type?: "default" | "primary" | "secondary";
   background?: string;
   textColor?: string;
-  px?: Number;
-  py?: Number;
+  px?: number;
+  py?: number;
   full?: boolean;
 }
 
