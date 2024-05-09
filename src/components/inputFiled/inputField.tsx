@@ -53,6 +53,7 @@ export const InputField = forwardRef<HTMLDivElement, Props>(
     );
     const [errorMessage, setErrorMessage] = useState<string>("");
 
+    // @ts-ignore
     const [combinedData, setCombinedData] = useState<{
       number: string | boolean;
       select: string;
@@ -124,7 +125,8 @@ export const InputField = forwardRef<HTMLDivElement, Props>(
         return true;
       } else if (type === "number") {
         if (
-          !(typeof inputValue === "number") ||
+          // @ts-ignore
+          isNaN(inputValue === "number") ||
           !inputValue ||
           (inputValue as string).length < 10
         ) {
@@ -142,8 +144,6 @@ export const InputField = forwardRef<HTMLDivElement, Props>(
         }
       }
     };
-
-    console.log(combinedData);
 
     useEffect(() => {
       if (selectList && type === "number" && inputValue && selectedOption) {
