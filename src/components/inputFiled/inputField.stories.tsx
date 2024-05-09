@@ -58,15 +58,3 @@ Number.args = {
     { id: 3, value: "+92", name: "UK" },
   ],
 };
-
-export const Checkbox = Template.bind({});
-Checkbox.args = {
-  sideLabel: "Checked",
-  type: "checkbox",
-};
-
-export const Radio = Template.bind({});
-Radio.args = {
-  sideLabel: "Select",
-  type: "radio",
-};

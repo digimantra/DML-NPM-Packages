@@ -9,35 +9,24 @@ interface Option {
 interface Props {
   name?: string;
   label?: string;
-  sideLabel?: string;
   placeholder?: string;
   onChange?: (value: string) => void;
   disabled?: boolean;
-  type?:
-    | "textarea"
-    | "radio"
-    | "checkbox"
-    | "text"
-    | "email"
-    | "password"
-    | "number";
+  type?: "textarea" | "text" | "email" | "password" | "number";
   icon?: React.ReactNode;
   hint?: string;
   value?: string | boolean;
   selectList?: Option[];
-  id?: string;
 }
 
 export const InputField = forwardRef<HTMLDivElement, Props>(
   (
     {
       label,
-      sideLabel,
       type = "text",
       placeholder = "enter the value",
       disabled = false,
       icon,
-      id,
       value,
       hint,
       onChange,
@@ -65,12 +54,6 @@ export const InputField = forwardRef<HTMLDivElement, Props>(
           return `appearance-none block w-full text-zinc-700 border border-grayMain rounded-lg py-2.5 ${
             icon ? "px-10" : "px-3.5"
           } shadow-sm text-base leading-6 font-normal focus:outline-none focus:border-[#d6bbfb] focus:shadow-md focus:shadow-[#f4ebff] ${disabled && "bg-[#f9fafb] shadow-sm"} ${errorMessage && `shadow-md shadow-[#fda29b]`}`;
-
-        case "radio":
-          return `default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`;
-
-        case "checkbox":
-          return `w-4 h-4 accent-[#e11d07] bg-gray-100 border-red-300 rounded-lg`;
 
         default:
           return `appearance-none block w-full text-zinc-700 border border-grayMain rounded-lg py-2.5 ${
@@ -161,26 +144,6 @@ export const InputField = forwardRef<HTMLDivElement, Props>(
       }
     };
 
-    // useImperativeHandle(ref, () => ({
-    //   validate: () => {
-    //     const isValid = handleValidation();
-
-    //     return isValid; // Return the validation status
-    //   },
-    // }));
-
-    const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const inputValue =
-        event.target.type === "checkbox"
-          ? event.target.checked
-          : event.target.value;
-      setInputValue(inputValue);
-      if (onChange) {
-        // @ts-ignore
-        onChange(inputValue);
-      }
-    };
-
     return (
       <div ref={ref} className={`relative w-full md:w-full my-4`}>
         {label && (
@@ -207,55 +170,6 @@ export const InputField = forwardRef<HTMLDivElement, Props>(
             className={classHandler()}
             placeholder={placeholder}
           />
-        ) : type === "checkbox" ? (
-          <div className="flex items-center gap-2">
-            <label className="inline-flex items-center cursor-pointer">
-              <input
-                disabled={disabled}
-                id={id}
-                type={type}
-                name={name}
-                checked={value as boolean}
-                onChange={handleChecked}
-                className="sr-only peer"
-              />
-
-              <div
-                className="relative w-4 h-4 border border-black peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-md peer dark:bg-gray-700 peer-checked:border-none  peer-checked:bg-red-600 
-              peer-checked:after:absolute 
-              peer-checked:after:content-['\2713'] 
-              peer-checked:after:text-white 
-              peer-checked:after:text-base 
-              peer-checked:after:-top-[4px] peer-checked:after:left-[1px] "
-              ></div>
-            </label>
-
-            {sideLabel && (
-              <div className="block mt-2 font-medium leading-5  capitalize text-[#344054] text-xs tracking-wider mb-2">
-                {sideLabel}
-              </div>
-            )}
-          </div>
-        ) : type === "radio" ? (
-          <div className="flex items-center gap-2">
-            <label className="inline-flex items-center cursor-pointer">
-              <input
-                id={id}
-                name={name}
-                disabled={disabled}
-                type={type}
-                value={value as string}
-                className="sr-only peer"
-              />
-              <div className="relative w-4 h-4 border border-black peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:border-none  peer-checked:bg-red-600 peer-checked:after:bg-white peer-checked:after:border-white peer-checked:after:content-[''] peer-checked:after:absolute peer-checked:after:top-[5px] peer-checked:after:left-[5px] after:border-gray-300 peer-checked:after:border after:rounded-full peer-checked:after:h-1.5 peer-checked:after:w-1.5"></div>
-            </label>
-
-            {sideLabel && (
-              <div className="block mt-2 font-medium leading-5  capitalize text-[#344054] text-xs tracking-wider mb-2">
-                {sideLabel}
-              </div>
-            )}
-          </div>
         ) : (
           <input
             name={name}
