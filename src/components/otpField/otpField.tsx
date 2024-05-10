@@ -21,6 +21,15 @@ export const OtpField: React.FC<OtpFieldProps> = ({ hint, label }) => {
     }
   };
 
+  const handlePaste = (e: any) => {
+    const value = e.clipboardData.getData("text");
+    if (isNaN(value)) return false;
+
+    const updateValue = value.toString().split("").slice(0, otp?.length);
+
+    setOtp(updateValue);
+  };
+
   const handleKeyDown = (e: any, index: any) => {
     if (e.key === "Backspace" && index > 0 && !otp[index]) {
       inputRefs.current[index - 1]?.focus();
@@ -43,6 +52,7 @@ export const OtpField: React.FC<OtpFieldProps> = ({ hint, label }) => {
               maxLength={1}
               onChange={(e) => handleChange(e, i)}
               onKeyDown={(e) => handleKeyDown(e, i)}
+              onPaste={(e) => handlePaste(e)}
             />
           );
         })}
