@@ -17,7 +17,7 @@ const meta: Meta = {
 export default meta;
 
 // Define the story template
-const Template: StoryFn = (args) => <DatePicker />;
+const Template: StoryFn = (args) => <DatePicker {...args} />;
 
 // Default story
 export const Default = Template.bind({});
