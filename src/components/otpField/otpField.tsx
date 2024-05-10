@@ -1,16 +1,24 @@
-import { useRef, useState } from "react";
+import React, { useRef } from "react";
 
 interface OtpFieldProps {
   hint: string;
   label: string;
+  otp: string[];
+  setOtp: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-export const OtpField: React.FC<OtpFieldProps> = ({ hint, label }) => {
-  const [otp, setOtp] = useState(new Array(6).fill(""));
+export const OtpField: React.FC<OtpFieldProps> = ({
+  hint,
+  label,
+  otp,
+  setOtp,
+}) => {
   const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
 
+  console.log(otp);
+
   const handleChange = (e: any, index: any) => {
-    if (isNaN(e.target.value)) return false;
+    if (isNaN(parseInt(e.target.value))) return;
 
     setOtp([...otp.map((data, i) => (index === i ? e.target.value : data))]);
 
@@ -21,13 +29,14 @@ export const OtpField: React.FC<OtpFieldProps> = ({ hint, label }) => {
     }
   };
 
-  const handlePaste = (e: any) => {
+  const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    e.preventDefault();
     const value = e.clipboardData.getData("text");
-    if (isNaN(value)) return false;
-
-    const updateValue = value.toString().split("").slice(0, otp?.length);
-
-    setOtp(updateValue);
+    const pastedValues = value
+      .split("")
+      .filter((char) => !isNaN(parseInt(char)));
+    const newOtp = pastedValues.slice(0, otp.length);
+    setOtp(newOtp);
   };
 
   const handleKeyDown = (e: any, index: any) => {
@@ -42,20 +51,19 @@ export const OtpField: React.FC<OtpFieldProps> = ({ hint, label }) => {
         <div className="text-[#344054] font-medium text-sm mb-1">{label}</div>
       )}
       <div className="flex items-center justify-between gap-4">
-        {otp?.map((data, i) => {
-          return (
-            <input
-              className="flex text-center border border-[#D0D5DD] h-16 w-16 rounded-md outline-none p-2 text-6xl focus:border-red-800"
-              style={{ color: "#D0D5DD", fontSize: "48px", lineHeight: "60px" }}
-              type="text"
-              value={data}
-              maxLength={1}
-              onChange={(e) => handleChange(e, i)}
-              onKeyDown={(e) => handleKeyDown(e, i)}
-              onPaste={(e) => handlePaste(e)}
-            />
-          );
-        })}
+        {otp.map((data, i) => (
+          <input
+            key={i}
+            className="flex text-center border border-[#D0D5DD] h-16 w-16 rounded-md outline-none p-2 text-6xl focus:border-red-800"
+            style={{ color: "#D0D5DD", fontSize: "48px", lineHeight: "60px" }}
+            type="text"
+            value={data}
+            maxLength={1}
+            onChange={(e) => handleChange(e, i)}
+            onKeyDown={(e) => handleKeyDown(e, i)}
+            onPaste={(e) => handlePaste(e)}
+          />
+        ))}
       </div>
 
       {hint && (
