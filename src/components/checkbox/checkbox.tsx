@@ -29,10 +29,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           className="sr-only peer"
         />
 
-        <div className="relative w-5 h-5 border border-black peer-focus:border-red-600 peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-md peer dark:bg-gray-700 peer-checked:border-none  peer-checked:bg-red-600">
+        <div className="relative w-5 h-5 border border-black peer:absolute peer-focus:border-red-600 peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-md peer dark:bg-gray-700 peer-checked:border-none  peer-checked:bg-red-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-3 w-3"
+            className="h-5 w-5"
             viewBox="0 0 20 20"
             fill="white"
             stroke="white"

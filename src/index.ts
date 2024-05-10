@@ -9,3 +9,8 @@ export { Notifications } from "./components/notification/notification";
 export { Popup } from "./components/popUp/popup";
 
 export { Table } from "./components/table/table";
+
+export { Checkbox } from "./components/checkbox/checkbox";
+export { Radio } from "./components/radio/radio";
+
+export { OtpField } from "./components/otpField/otpField";
