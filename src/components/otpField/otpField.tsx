@@ -15,17 +15,20 @@ export const OtpField: React.FC<OtpFieldProps> = ({
 }) => {
   const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
 
-  console.log(otp);
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    const { value } = e.target;
+    if (isNaN(parseInt(value))) return;
 
-  const handleChange = (e: any, index: any) => {
-    if (isNaN(parseInt(e.target.value))) return;
+    const newOtp = [...otp];
+    newOtp[index] = value;
+    setOtp(newOtp);
 
-    setOtp([...otp.map((data, i) => (index === i ? e.target.value : data))]);
-
-    if (e.target.value && e.target.nextSibling) {
-      e.target.nextSibling.focus();
-    } else if (!e.target.value && e.target.previousSibling) {
-      e.target.previousSibling.focus();
+    // Focus on the next input field
+    if (value && inputRefs.current[index + 1]) {
+      inputRefs.current[index + 1]?.focus();
     }
   };
 
@@ -39,9 +42,19 @@ export const OtpField: React.FC<OtpFieldProps> = ({
     setOtp(newOtp);
   };
 
-  const handleKeyDown = (e: any, index: any) => {
-    if (e.key === "Backspace" && index > 0 && !otp[index]) {
-      inputRefs.current[index - 1]?.focus();
+  const handleKeyDown = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    if (e.key === "Backspace") {
+      if (!otp[index] && inputRefs.current[index - 1]) {
+        // Focus on the previous input field if the current one is empty
+        inputRefs.current[index - 1]?.focus();
+      } else {
+        const newOtp = [...otp];
+        newOtp[index] = "";
+        setOtp(newOtp);
+      }
     }
   };
 
@@ -61,6 +74,7 @@ export const OtpField: React.FC<OtpFieldProps> = ({
             maxLength={1}
             onChange={(e) => handleChange(e, i)}
             onKeyDown={(e) => handleKeyDown(e, i)}
+            ref={(el) => (inputRefs.current[i] = el)}
             onPaste={(e) => handlePaste(e)}
           />
         ))}
